@@ -2,7 +2,19 @@
   "STS2_DEHYA_RELIC_BLAZING_BRACERS.description": "At the start of each combat, gain 7 [gold]Plating[/gold] and 2 [gold]Regen[/gold].",
   "STS2_DEHYA_RELIC_BLAZING_BRACERS.flavor": "Blazing resolve spreads through the bracers — she is the burning sun of the desert.",
   "STS2_DEHYA_RELIC_BLAZING_BRACERS.title": "Blazing Bracers",
+  "STS2_DEHYA_RELIC_GILDED_COOKPOT.description": "When you pick this up, heal [blue]{Heal}[/blue] HP. The first time you lose HP each combat, gain [blue]{DexterityPower}[/blue] [gold]Dexterity[/gold].",
+  "STS2_DEHYA_RELIC_GILDED_COOKPOT.flavor": "The stew tastes faintly of metal. They say those who grow used to it move a little faster.",
+  "STS2_DEHYA_RELIC_GILDED_COOKPOT.title": "Gilded Cookpot",
+  "STS2_DEHYA_RELIC_PAINKILLERS.description": "Whenever you lose HP during your turn, heal [blue]{Heal}[/blue] HP.",
+  "STS2_DEHYA_RELIC_PAINKILLERS.flavor": "Bitter enough to make anyone wince. On the battlefield, who has time to taste it?",
+  "STS2_DEHYA_RELIC_PAINKILLERS.title": "Painkillers",
+  "STS2_DEHYA_RELIC_SCARRED_TRAINING_POST.description": "Attacks you play that cost 0 deal [blue]{ExtraDamage}[/blue] additional damage.",
+  "STS2_DEHYA_RELIC_SCARRED_TRAINING_POST.flavor": "The post is covered in blade marks and burn scars. It has never been the one to fall.",
+  "STS2_DEHYA_RELIC_SCARRED_TRAINING_POST.title": "Scarred Training Post",
   "STS2_DEHYA_RELIC_STILL_WARM_BRACERS.description": "At the start of each combat, gain 5 [gold]Plating[/gold] and heal 2 HP.",
   "STS2_DEHYA_RELIC_STILL_WARM_BRACERS.flavor": "Bracers that keep their warmth long after being taken off — their owner never strays far from the frontline.",
-  "STS2_DEHYA_RELIC_STILL_WARM_BRACERS.title": "Still-Warm Bracers"
+  "STS2_DEHYA_RELIC_STILL_WARM_BRACERS.title": "Still-Warm Bracers",
+  "STS2_DEHYA_RELIC_TOY_WOODEN_SWORD.description": "At the end of your turn, if you still have [gold]Block[/gold], deal [blue]{Damage}[/blue] damage to a random enemy.",
+  "STS2_DEHYA_RELIC_TOY_WOODEN_SWORD.flavor": "Children use it to play the hero. When Dehya swings it, she is not playing.",
+  "STS2_DEHYA_RELIC_TOY_WOODEN_SWORD.title": "Toy Wooden Sword"
 }

@@ -2,7 +2,19 @@
   "STS2_DEHYA_RELIC_BLAZING_BRACERS.description": "每场战斗开始时，获得7层[gold]覆甲[/gold]，获得2层[gold]再生[/gold]。",
   "STS2_DEHYA_RELIC_BLAZING_BRACERS.flavor": "灼热的战意顺着臂铠蔓延——此刻的她，就是荒漠里燃烧的太阳。",
   "STS2_DEHYA_RELIC_BLAZING_BRACERS.title": "炽热燃烧的臂铠",
+  "STS2_DEHYA_RELIC_GILDED_COOKPOT.description": "拾起时，恢复[blue]{Heal}[/blue]点生命。每场战斗中你第一次失去生命值时，获得[blue]{DexterityPower}[/blue]层[gold]敏捷[/gold]。",
+  "STS2_DEHYA_RELIC_GILDED_COOKPOT.flavor": "炖出来的汤带着淡淡的金属味。据说吃惯了的人，动作都会快上几分。",
+  "STS2_DEHYA_RELIC_GILDED_COOKPOT.title": "炽金锅",
+  "STS2_DEHYA_RELIC_PAINKILLERS.description": "每当你在自己的回合失去生命值时，恢复[blue]{Heal}[/blue]点生命。",
+  "STS2_DEHYA_RELIC_PAINKILLERS.flavor": "苦得让人皱眉。但上了战场，谁还在乎味道呢？",
+  "STS2_DEHYA_RELIC_PAINKILLERS.title": "止痛剂",
+  "STS2_DEHYA_RELIC_SCARRED_TRAINING_POST.description": "你打出的0费攻击牌伤害+[blue]{ExtraDamage}[/blue]。",
+  "STS2_DEHYA_RELIC_SCARRED_TRAINING_POST.flavor": "木桩上满是刀痕与灼烧的印记。在它面前倒下的，从来不是迪希雅。",
+  "STS2_DEHYA_RELIC_SCARRED_TRAINING_POST.title": "伤痕累累的木桩",
   "STS2_DEHYA_RELIC_STILL_WARM_BRACERS.description": "每场战斗开始时，获得5层[gold]覆甲[/gold]，恢复2点生命值。",
   "STS2_DEHYA_RELIC_STILL_WARM_BRACERS.flavor": "取下时仍带着体温的臂铠——它的主人从不远离开战前线。",
-  "STS2_DEHYA_RELIC_STILL_WARM_BRACERS.title": "尚有余温的臂铠"
+  "STS2_DEHYA_RELIC_STILL_WARM_BRACERS.title": "尚有余温的臂铠",
+  "STS2_DEHYA_RELIC_TOY_WOODEN_SWORD.description": "回合结束时，若你仍有[gold]格挡[/gold]，对随机敌人造成[blue]{Damage}[/blue]点伤害。",
+  "STS2_DEHYA_RELIC_TOY_WOODEN_SWORD.flavor": "孩子们用它扮演大英雄。迪希雅拿起它的时候，可是认真的。",
+  "STS2_DEHYA_RELIC_TOY_WOODEN_SWORD.title": "玩具木剑"
 }

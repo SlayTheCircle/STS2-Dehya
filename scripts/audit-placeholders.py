@@ -28,7 +28,7 @@ for lang in ('zhs', 'eng'):
         if entry not in varmap:
             errors.append(f'[{lang}] {entry}: 未找到对应卡牌类，无法检查占位符')
             continue
-        used = set(re.findall(r'\{(\w+)(?::[^}]*)?\}', text)) - {'InCombat'}
+        used = set(re.findall(r'\{(\w+)(?::[^}]*)?\}', text)) - {'InCombat', 'IfUpgraded'}  # 两者均为引擎级占位符,非卡牌变量
         missing = used - varmap[entry]
         if missing:
             errors.append(f'[{lang}] {entry}: 文本消费未声明键 {sorted(missing)}')
