@@ -1,0 +1,8 @@
+{
+  "template": "STS2-Template",
+  "version": "0.1.0",
+  "snapshotCommit": null,
+  "snapshotDigest": "24c22c553a25c64251f50d2c188ac48774c658a39722419726dcb5afeb61b025",
+  "derived": "STS2-Dehya",
+  "derivedAt": "2026-10-04"
+}

@@ -1,0 +1,8 @@
+{
+  "STS2_DEHYA_CARD_DEHYA_STRIKE.title": "Dehya Strike",
+  "STS2_DEHYA_CARD_DEHYA_STRIKE.description": "Deal {Damage:diff()} damage.",
+  "STS2_DEHYA_CARD_DEHYA_DEFEND.title": "Dehya Defend",
+  "STS2_DEHYA_CARD_DEHYA_DEFEND.description": "Gain {Block:diff()} [gold]Block[/gold].",
+  "STS2_DEHYA_CARD_DEHYA_VIGOR.title": "Dehya Vigor",
+  "STS2_DEHYA_CARD_DEHYA_VIGOR.description": "Increases damage you deal by {DehyaVigorPower:diff()} for the rest of this combat."
+}

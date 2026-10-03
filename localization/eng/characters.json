@@ -1,0 +1,18 @@
+{
+  "STS2_DEHYA_CHARACTER_DEHYA.title": "Dehya",
+  "STS2_DEHYA_CHARACTER_DEHYA.titleObject": "Dehya",
+  "STS2_DEHYA_CHARACTER_DEHYA.description": "The example character of the compile skeleton.",
+  "STS2_DEHYA_CHARACTER_DEHYA.unlockText": "Available once installed.",
+  "STS2_DEHYA_CHARACTER_DEHYA.aromaPrinciple": "",
+  "STS2_DEHYA_CHARACTER_DEHYA.bestiaryQuote": "Not yet written.",
+  "STS2_DEHYA_CHARACTER_DEHYA.cardsModifierTitle": "",
+  "STS2_DEHYA_CHARACTER_DEHYA.cardsModifierDescription": "",
+  "STS2_DEHYA_CHARACTER_DEHYA.eventDeathPrevention": "",
+  "STS2_DEHYA_CHARACTER_DEHYA.goldMonologue": "",
+  "STS2_DEHYA_CHARACTER_DEHYA.possessiveAdjective": "her",
+  "STS2_DEHYA_CHARACTER_DEHYA.pronounObject": "her",
+  "STS2_DEHYA_CHARACTER_DEHYA.pronounPossessive": "her",
+  "STS2_DEHYA_CHARACTER_DEHYA.pronounSubject": "she",
+  "STS2_DEHYA_CHARACTER_DEHYA.banter.alive.endTurnPing": "My turn.",
+  "STS2_DEHYA_CHARACTER_DEHYA.banter.dead.endTurnPing": "...it's up to you."
+}

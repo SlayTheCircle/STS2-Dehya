@@ -1,0 +1,18 @@
+{
+  "STS2_DEHYA_CHARACTER_DEHYA.title": "示例角色",
+  "STS2_DEHYA_CHARACTER_DEHYA.titleObject": "示例角色",
+  "STS2_DEHYA_CHARACTER_DEHYA.description": "模板骨架的示例角色。",
+  "STS2_DEHYA_CHARACTER_DEHYA.unlockText": "安装后即可游玩。",
+  "STS2_DEHYA_CHARACTER_DEHYA.aromaPrinciple": "",
+  "STS2_DEHYA_CHARACTER_DEHYA.bestiaryQuote": "尚未书写。",
+  "STS2_DEHYA_CHARACTER_DEHYA.cardsModifierTitle": "",
+  "STS2_DEHYA_CHARACTER_DEHYA.cardsModifierDescription": "",
+  "STS2_DEHYA_CHARACTER_DEHYA.eventDeathPrevention": "",
+  "STS2_DEHYA_CHARACTER_DEHYA.goldMonologue": "",
+  "STS2_DEHYA_CHARACTER_DEHYA.possessiveAdjective": "她的",
+  "STS2_DEHYA_CHARACTER_DEHYA.pronounObject": "她",
+  "STS2_DEHYA_CHARACTER_DEHYA.pronounPossessive": "她的",
+  "STS2_DEHYA_CHARACTER_DEHYA.pronounSubject": "她",
+  "STS2_DEHYA_CHARACTER_DEHYA.banter.alive.endTurnPing": "该我了。",
+  "STS2_DEHYA_CHARACTER_DEHYA.banter.dead.endTurnPing": "……交给你了。"
+}
