@@ -1,8 +1,10 @@
 {
-  "STS2_DEHYA_CARD_DEHYA_STRIKE.title": "Dehya Strike",
-  "STS2_DEHYA_CARD_DEHYA_STRIKE.description": "Deal {Damage:diff()} damage.",
-  "STS2_DEHYA_CARD_DEHYA_DEFEND.title": "Dehya Defend",
+  "STS2_DEHYA_CARD_BRACED_STRIKE.description": "Deal {Damage:diff()} damage. Gain {Block:diff()} [gold]Block[/gold].",
+  "STS2_DEHYA_CARD_BRACED_STRIKE.title": "Braced Strike",
   "STS2_DEHYA_CARD_DEHYA_DEFEND.description": "Gain {Block:diff()} [gold]Block[/gold].",
-  "STS2_DEHYA_CARD_DEHYA_VIGOR.title": "Dehya Vigor",
-  "STS2_DEHYA_CARD_DEHYA_VIGOR.description": "Increases damage you deal by {DehyaVigorPower:diff()} for the rest of this combat."
+  "STS2_DEHYA_CARD_DEHYA_DEFEND.title": "Defend",
+  "STS2_DEHYA_CARD_DEHYA_STRIKE.description": "Deal {Damage:diff()} damage.",
+  "STS2_DEHYA_CARD_DEHYA_STRIKE.title": "Strike",
+  "STS2_DEHYA_CARD_MOLTEN_IRON_FIST.description": "Deal {Damage:diff()} damage. Apply {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
+  "STS2_DEHYA_CARD_MOLTEN_IRON_FIST.title": "Molten Iron Fist"
 }

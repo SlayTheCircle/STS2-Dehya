@@ -15,7 +15,8 @@ using DehyaMod.Content.Relics;
 namespace DehyaMod.Content.Characters;
 
 /// <summary>
-/// 示例角色:资产档案由 DehyaCharacterAssets 显式借用铁甲,见 ModEntry 的接线。
+/// 迪希雅:镀金旅团的「炽鬃之狮」。基础生命值 80(设计案);
+/// 资产档案由 DehyaCharacterAssets 显式借用铁甲,见 ModEntry 的接线。
 /// 世界线等深层模块为可选代码(见 docs/dev/worldline.md)。
 /// </summary>
 [RegisterCharacter]
@@ -28,7 +29,7 @@ public sealed class Dehya : CharacterModel
     // 角色不锁定——UnlocksAfterRunAs 维持 null。
     protected override CharacterModel? UnlocksAfterRunAs => null;
 
-    public override int StartingHp => 75;
+    public override int StartingHp => 80;
 
     public override int StartingGold => 99;
 
@@ -38,6 +39,7 @@ public sealed class Dehya : CharacterModel
 
     public override PotionPoolModel PotionPool => ModelDb.PotionPool<DehyaPotionPool>();
 
+    // 初始卡组(设计案): 打击×4 防御×4 熔铁之拳 以守待攻。
     public override IEnumerable<CardModel> StartingDeck => new CardModel[]
     {
         ModelDb.Card<DehyaStrike>(),
@@ -48,11 +50,11 @@ public sealed class Dehya : CharacterModel
         ModelDb.Card<DehyaDefend>(),
         ModelDb.Card<DehyaDefend>(),
         ModelDb.Card<DehyaDefend>(),
-        ModelDb.Card<DehyaVigor>(),
-        ModelDb.Card<DehyaVigor>(),
+        ModelDb.Card<MoltenIronFist>(),
+        ModelDb.Card<BracedStrike>(),
     };
 
-    public override IReadOnlyList<RelicModel> StartingRelics => new RelicModel[] { ModelDb.Relic<DehyaLocket>() };
+    public override IReadOnlyList<RelicModel> StartingRelics => new RelicModel[] { ModelDb.Relic<StillWarmBracers>() };
 
     public override float AttackAnimDelay => 0.15f;
 

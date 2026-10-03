@@ -1,8 +1,10 @@
 {
-  "STS2_DEHYA_CARD_DEHYA_STRIKE.title": "示例打击",
-  "STS2_DEHYA_CARD_DEHYA_STRIKE.description": "造成{Damage:diff()}点伤害。",
-  "STS2_DEHYA_CARD_DEHYA_DEFEND.title": "示例防御",
+  "STS2_DEHYA_CARD_BRACED_STRIKE.description": "造成{Damage:diff()}点伤害，获得{Block:diff()}点[gold]格挡[/gold]。",
+  "STS2_DEHYA_CARD_BRACED_STRIKE.title": "以守待攻",
   "STS2_DEHYA_CARD_DEHYA_DEFEND.description": "获得{Block:diff()}点[gold]格挡[/gold]。",
-  "STS2_DEHYA_CARD_DEHYA_VIGOR.title": "示例昂扬",
-  "STS2_DEHYA_CARD_DEHYA_VIGOR.description": "本场战斗中，你造成的伤害+{DehyaVigorPower:diff()}。"
+  "STS2_DEHYA_CARD_DEHYA_DEFEND.title": "防御",
+  "STS2_DEHYA_CARD_DEHYA_STRIKE.description": "造成{Damage:diff()}点伤害。",
+  "STS2_DEHYA_CARD_DEHYA_STRIKE.title": "打击",
+  "STS2_DEHYA_CARD_MOLTEN_IRON_FIST.description": "造成{Damage:diff()}点伤害，给予{VulnerablePower:diff()}层[gold]易伤[/gold]。",
+  "STS2_DEHYA_CARD_MOLTEN_IRON_FIST.title": "熔铁之拳"
 }

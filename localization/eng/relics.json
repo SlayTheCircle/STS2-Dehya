@@ -1,5 +1,8 @@
 {
-  "STS2_DEHYA_RELIC_DEHYA_LOCKET.title": "Dehya Locket",
-  "STS2_DEHYA_RELIC_DEHYA_LOCKET.description": "Structure demo: no combat effect yet. Replace with your design.",
-  "STS2_DEHYA_RELIC_DEHYA_LOCKET.flavor": "A plain little locket, waiting for a story."
+  "STS2_DEHYA_RELIC_BLAZING_BRACERS.description": "At the start of each combat, gain 7 [gold]Plating[/gold] and 2 [gold]Regen[/gold].",
+  "STS2_DEHYA_RELIC_BLAZING_BRACERS.flavor": "Blazing resolve spreads through the bracers — she is the burning sun of the desert.",
+  "STS2_DEHYA_RELIC_BLAZING_BRACERS.title": "Blazing Bracers",
+  "STS2_DEHYA_RELIC_STILL_WARM_BRACERS.description": "At the start of each combat, gain 5 [gold]Plating[/gold] and heal 2 HP.",
+  "STS2_DEHYA_RELIC_STILL_WARM_BRACERS.flavor": "Bracers that keep their warmth long after being taken off — their owner never strays far from the frontline.",
+  "STS2_DEHYA_RELIC_STILL_WARM_BRACERS.title": "Still-Warm Bracers"
 }
