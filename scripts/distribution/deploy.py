@@ -10,10 +10,13 @@ from delivery import hashes
 
 
 def closed(detector: str):
-    result = subprocess.run([detector], capture_output=True, text=True, timeout=30)
-    if result.returncode or not result.stdout.strip() or re.search(r'error:', result.stdout, re.I):
+    # tasklist 在中文 Windows 输出 GBK 表头,WSL 侧默认 UTF-8 解码会抛 UnicodeDecodeError;
+    # 守卫只匹配 ASCII 进程名(GBK 向下兼容 ASCII),errors='replace' 不影响判定。
+    result = subprocess.run([detector], capture_output=True, timeout=30)
+    stdout = result.stdout.decode(errors='replace')
+    if result.returncode or not stdout.strip() or re.search(r'error:', stdout, re.I):
         raise ValueError('Process detection failed; deployment stopped')
-    if re.search(r'spire|sts2', result.stdout, re.I):
+    if re.search(r'spire|sts2', stdout, re.I):
         raise ValueError('Game is running; close it before deploying')
 
 
