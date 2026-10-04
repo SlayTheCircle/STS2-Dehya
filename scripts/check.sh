@@ -11,6 +11,7 @@ python3 "$MOD_ROOT/scripts/audit-repository.py"
 python3 "$MOD_ROOT/scripts/audit-docs.py"
 python3 "$MOD_ROOT/scripts/audit-placeholders.py"
 python3 "$MOD_ROOT/scripts/audit-loc-coverage.py"
+python3 "$MOD_ROOT/scripts/audit-ancient-dialogues.py"
 python3 "$MOD_ROOT/scripts/audit-roster.py"
 python3 "$MOD_ROOT/scripts/export-card-table.py" --check
 python3 "$MOD_ROOT/scripts/audit-assets.py" --source-only
