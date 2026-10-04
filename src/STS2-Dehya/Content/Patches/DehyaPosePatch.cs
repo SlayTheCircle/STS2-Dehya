@@ -42,7 +42,9 @@ internal static class DehyaPosePatch
     // 每个小人一个版本号:新触发使旧恢复协程失效,避免连击时旧恢复覆盖新姿势。
     private static readonly Dictionary<NCreature, uint> Versions = new();
 
-    // 每个小人的基准缩放缓存:连击时后续触发须以入场缩放(而非上一个姿势的补偿缩放)为基数。
+    // 每个小人的基准缩放缓存(**只存绝对值**):连击时后续触发须以入场缩放为基数;
+    // scale.X 的符号是游戏的朝向状态(帝王蟹 SurroundedPower.FlipScale 直接翻转 %Visuals=Body 的
+    // scale.X 符号),所有写入必须保留写入时刻的实时符号,否则会把翻转洗掉(2026-10-05 试玩反馈 3)。
     private static readonly Dictionary<NCreature, Vector2> BaseScales = new();
 
     // 每个小人的基准位置缓存(tscn 里 Sprite 并非在原点):偏移一律从基准叠加,回切还原基准。
@@ -122,7 +124,8 @@ internal static class DehyaPosePatch
         }
     }
 
-    /// <summary>临时复活(死战不屈类)走 StartReviveAnim:无条件回站立图,版本+1 作废在途恢复,基准缓存重置。</summary>
+    /// <summary>临时复活(死战不屈类)走 StartReviveAnim:无条件回站立图与基准缩放/位置
+    /// (死亡姿势带 1.5× 补偿与落地偏移,必须显式还原),版本+1 作废在途恢复,朝向符号保留。</summary>
     [HarmonyPatch(typeof(NCreature), nameof(NCreature.StartReviveAnim))]
     [HarmonyPostfix]
     private static void PostfixStartReviveAnim(NCreature __instance)
@@ -135,9 +138,13 @@ internal static class DehyaPosePatch
             }
             Versions.TryGetValue(__instance, out uint version);
             Versions[__instance] = ++version; // 作废在途的延迟恢复协程
-            BaseScales.Remove(__instance);
-            BasePositions.Remove(__instance);
             sprite.Texture = Normal;
+            if (BaseScales.TryGetValue(__instance, out Vector2 baseScale))
+            {
+                float facing = CurrentFacing(sprite);
+                sprite.Scale = new Vector2(baseScale.X * facing, baseScale.Y);
+                sprite.Position = BasePositions.GetValueOrDefault(__instance, sprite.Position);
+            }
         }
         catch (Exception e)
         {
@@ -165,7 +172,7 @@ internal static class DehyaPosePatch
     {
         if (!BaseScales.TryGetValue(node, out Vector2 baseScale))
         {
-            baseScale = sprite.Scale;
+            baseScale = new Vector2(Mathf.Abs(sprite.Scale.X), Mathf.Abs(sprite.Scale.Y));
             BaseScales[node] = baseScale;
         }
         if (!BasePositions.TryGetValue(node, out Vector2 basePos))
@@ -178,8 +185,10 @@ internal static class DehyaPosePatch
         Versions[node] = mine;
         sprite.Texture = pose;
         float factor = pose.GetSize().Y > 0 && Normal != null ? (float)Normal.GetSize().Y / pose.GetSize().Y : 1f;
-        sprite.Scale = baseScale * factor;
-        sprite.Position = basePos + new Vector2(offsetX, offsetY);
+        float facing = CurrentFacing(sprite);
+        sprite.Scale = new Vector2(baseScale.X * factor * facing, baseScale.Y * factor);
+        // 横向偏移随朝向镜像:构图主体的左右在镜像渲染下互换。
+        sprite.Position = basePos + new Vector2(offsetX * facing, offsetY);
         return mine;
     }
 
@@ -190,10 +199,17 @@ internal static class DehyaPosePatch
             sprite.Texture = Normal;
             if (BaseScales.TryGetValue(node, out Vector2 baseScale))
             {
-                sprite.Scale = baseScale;
+                float facing = CurrentFacing(sprite);
+                sprite.Scale = new Vector2(baseScale.X * facing, baseScale.Y);
                 sprite.Position = BasePositions.GetValueOrDefault(node, sprite.Position);
             }
         }
+    }
+
+    /// <summary>朝向符号:+1 朝右 / -1 朝左(scale.X 符号即 SurroundedPower 维护的朝向状态,不可覆写)。</summary>
+    private static float CurrentFacing(Sprite2D sprite)
+    {
+        return sprite.Scale.X < 0f ? -1f : 1f;
     }
 
     /// <summary>双攻击形态:E8 裁定 剑斩=≥1费 / 挥拳=0费;取本回合最后打出的己方卡的当前结算费用。</summary>
