@@ -65,5 +65,20 @@
   "THE_ARCHITECT.talk.STS2_DEHYA_CHARACTER_DEHYA.2-2r.char": "佣兵接下了委托，就会干到委托完成为止——这是我的规矩。",
   "THE_ARCHITECT.talk.STS2_DEHYA_CHARACTER_DEHYA.2-2r.next": "继续",
   "THE_ARCHITECT.talk.STS2_DEHYA_CHARACTER_DEHYA.2-3r.ancient": "……那便，回去吧。",
-  "PAEL.talk.STS2_DEHYA_CHARACTER_DEHYA.1-0r.next": "继续"
+  "PAEL.talk.STS2_DEHYA_CHARACTER_DEHYA.1-0r.next": "继续",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.0-0r.ancient": "[b]好厉害的剑！还有燃烧的拳头！！[/b]",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.0-0r.next": "对话",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.0-1r.char": "哈哈，眼光不错。在大漠里讨生活，剑和拳头缺一不可。",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.0-1r.next": "继续",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.0-2r.ancient": "[b]强壮的战士该有更多武器！挑一把！！[/b]",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.1-0r.ancient": "[b]烈火般的拳头！再添一把武器，会更强！！[/b]",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.1-0r.next": "继续",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.1-1r.char": "拳头就够用啦——不过你这么热情，那我就不客气了。",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.1-1r.next": "继续",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.1-2r.ancient": "[b]哈哈哈！！拿去！变强！然后回来与我战斗！！[/b]",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.2-0r.ancient": "[b]红色鬃毛的战士，与我一战！！[/b]",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.2-0r.next": "战斗",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.2-1r.char": "[i][font_size=22]迪希雅与坦克斯痛痛快快地战作一团。[/font_size][/i]",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.2-1r.next": "继续",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.2-2r.ancient": "[b]好哇！！豪迈的一战！收下武器，下次再战！！[/b]"
 }

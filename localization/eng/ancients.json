@@ -65,5 +65,20 @@
   "THE_ARCHITECT.talk.STS2_DEHYA_CHARACTER_DEHYA.2-2r.char": "A mercenary sees a commission through to the end — that's my code.",
   "THE_ARCHITECT.talk.STS2_DEHYA_CHARACTER_DEHYA.2-2r.next": "Continue",
   "THE_ARCHITECT.talk.STS2_DEHYA_CHARACTER_DEHYA.2-3r.ancient": "...Then go back.",
-  "PAEL.talk.STS2_DEHYA_CHARACTER_DEHYA.1-0r.next": "Continue"
+  "PAEL.talk.STS2_DEHYA_CHARACTER_DEHYA.1-0r.next": "Continue",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.0-0r.ancient": "[b]IMPRESSIVE SWORD, AND BURNING FISTS!![/b]",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.0-0r.next": "Talk",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.0-1r.char": "Haha, good eye! Out in the desert, sword and fists — can't do without either.",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.0-1r.next": "Continue",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.0-2r.ancient": "[b]STRONG WARRIOR NEEDS MORE WEAPONS! TAKE ONE!![/b]",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.1-0r.ancient": "[b]FISTS LIKE FIRE! ADD A WEAPON, BE EVEN STRONGER!![/b]",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.1-0r.next": "Continue",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.1-1r.char": "My fists are enough — but if you're giving them away, I won't say no.",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.1-1r.next": "Continue",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.1-2r.ancient": "[b]HAHAHA!! TAKE IT! GROW STRONG! THEN COME BACK AND FIGHT ME!![/b]",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.2-0r.ancient": "[b]FIGHT ME, RED-MANED WARRIOR!![/b]",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.2-0r.next": "Fight",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.2-1r.char": "[i][font_size=22]Dehya and Tanx scuffle, laughing heartily.[/font_size][/i]",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.2-1r.next": "Continue",
+  "TANX.talk.STS2_DEHYA_CHARACTER_DEHYA.2-2r.ancient": "[b]YEEES!! MIGHTY FIGHT! TAKE A WEAPON, AND FIGHT ME AGAIN!![/b]"
 }
