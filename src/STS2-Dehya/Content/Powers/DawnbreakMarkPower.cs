@@ -24,7 +24,11 @@ public sealed class DawnbreakMarkPower : DehyaPowerBase
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner.Creature == base.Owner || cardPlay.Card.EnergyCost.GetResolved() != 0)
+        // Mirror 裁定 B9(2026-10-04):仅「以该敌人为目标的 0 费攻击牌」触发;无目标的0费牌不算。
+        if (cardPlay.Card.Owner.Creature == base.Owner
+            || cardPlay.Card.EnergyCost.GetResolved() != 0
+            || cardPlay.Card.Type != CardType.Attack
+            || cardPlay.Target != base.Owner)
         {
             return;
         }

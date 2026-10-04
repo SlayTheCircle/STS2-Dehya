@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models;
 using STS2RitsuLib.Interop.AutoRegistration;
 using DehyaMod.Content.CardPools;
@@ -30,7 +31,10 @@ public sealed class Regroup : DehyaCardBase
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        List<PowerModel> debuffs = base.Owner.Creature.Powers.Where(static p => p.Type == PowerType.Debuff).ToList();
+        // Mirror 裁定 B28(2026-10-04):仅清除 易伤/虚弱/脆弱 三项原生减益;
+        // 敌方特殊减益(昏眩/烟雾弥漫等)不可被清,口径写明在卡面。
+        List<PowerModel> debuffs = base.Owner.Creature.Powers
+            .Where(static p => p is VulnerablePower or WeakPower or FrailPower).ToList();
         foreach (PowerModel debuff in debuffs)
         {
             await PowerCmd.Remove(debuff);

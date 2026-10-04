@@ -39,7 +39,7 @@ public sealed class GambitOfLife : DehyaCardBase
         VfxCmd.PlayOnCreatureCenter(base.Owner.Creature, "vfx/vfx_bloody_impact");
         await HpLossCmd.LoseHpFromCard(choiceContext, base.Owner.Creature, base.DynamicVars["HpLoss"].BaseValue, this, cardPlay);
         await PowerCmd.Apply<StrengthPower>(choiceContext, base.Owner.Creature, base.DynamicVars.Strength.BaseValue, base.Owner.Creature, this);
-        if (base.Owner.Creature.GetHpPercentRemaining() < 0.5)
+        if (base.Owner.Creature.GetHpPercentRemaining() <= 0.5)
         {
             await PowerCmd.Apply<StrengthPower>(choiceContext, base.Owner.Creature, base.DynamicVars["BonusStrength"].BaseValue, base.Owner.Creature, this);
         }

@@ -37,7 +37,7 @@ public sealed class HotBlooded : DehyaCardBase
         VfxCmd.PlayOnCreatureCenter(base.Owner.Creature, "vfx/vfx_bloody_impact");
         await HpLossCmd.LoseHpFromCard(choiceContext, base.Owner.Creature, base.DynamicVars["HpLoss"].BaseValue, this, cardPlay);
         await PlayerCmd.GainEnergy(base.DynamicVars.Energy.BaseValue, base.Owner);
-        if (base.Owner.Creature.GetHpPercentRemaining() < 0.5)
+        if (base.Owner.Creature.GetHpPercentRemaining() <= 0.5)
         {
             await PlayerCmd.GainEnergy(base.DynamicVars["BonusEnergy"].IntValue, base.Owner);
         }

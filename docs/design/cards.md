@@ -46,9 +46,9 @@
 | 黄沙百战 | 罕见 | 2 | 攻击 | 造成{CalculatedDamage:diff()}点伤害。弃牌堆中每有一张费用不低于2的牌，伤害额外+{ExtraDamage:diff()}。 |
 | 渐入佳境 | 稀有 | 0 | 攻击 | 造成{Damage:diff()}点伤害，获得{StrengthPower:diff()}点[gold]力量[/gold]。
 每次打出这张牌：费用+1、伤害翻倍（本场战斗）。 |
-| 赤炎流火 | 稀有 | 3 | 攻击 | 失去{HpLoss:diff()}点生命，造成{Damage:diff()}点伤害。 |
-| 燎原野火 | 稀有 | 5 | 攻击 | 造成 {Damage:diff()} 点伤害。本回合内你每打出一张 0 费牌，手牌中的这张牌耗能 -1（可叠加）。 |
-| 夜尽天明 | 稀有 | 0 | 攻击 | 造成 {Damage:diff()} 点伤害并标记敌人：你每打出一张 0 费牌，该敌人失去 {DawnbreakMarkPower:diff()} 点生命。 |
+| 赤焰流火 | 稀有 | 3 | 攻击 | 失去{HpLoss:diff()}点生命，造成{Damage:diff()}点伤害。 |
+| 燎原野火 | 稀有 | 5 | 攻击 | 造成 {Damage:diff()} 点伤害。本回合内你每打出一张 0 费牌，这张牌的耗能 -1（可叠加；回合结束或打出后复原）。 |
+| 夜尽天明 | 稀有 | 0 | 攻击 | 造成 {Damage:diff()} 点伤害并标记敌人：你每打出一张以该敌人为目标的 0 费攻击牌，该敌人失去 {DawnbreakMarkPower:diff()} 点生命。 |
 | 终结之斩 | 稀有 | 3 | 攻击 | 造成{Damage:diff()}点伤害，获得{Energy:energyIcons()}。
 若此伤害击败敌人，将这张牌的一个复制（保留升级状态）放入抽牌堆。 |
 | 准备万全 | 稀有 | 0 | 攻击 | 移除你全部的[gold]覆甲[/gold]，对所有敌人造成{CalculatedDamage:diff()}点伤害。若没有[gold]覆甲[/gold]，改为获得{PlatingPower:diff()}层[gold]覆甲[/gold]。 |
@@ -76,7 +76,7 @@
 | 负血奋进 | 罕见 | 1 | 技能 | 抽{Cards:diff()}张牌。若你的生命值高于50%，失去{HpLoss:diff()}生命并获得{StrengthPower:diff()}点力量；否则再抽1张牌。 |
 | 热血沸腾 | 罕见 | 0 | 技能 | 抽{Cards:diff()}张牌，失去{HpLoss:diff()}生命。若你的生命值高于50%，再抽2张牌。 |
 | 悬赏委托 | 罕见 | 2 | 技能 | 标记一名敌人。该敌人被击败时：获得1点能量，抽{Cards:diff()}张牌，并在战斗胜利后获得{BountyMarkPower:diff()}金币。 |
-| 剑斗技巧 | 罕见 | 3 | 技能 | 下回合获得 {DelayedTemporaryStrengthPower:diff()} 点临时力量。本回合内你每打出一张攻击牌，手牌中的这张牌耗能 -1。 |
+| 剑斗技巧 | 罕见 | 3 | 技能 | 下回合获得 {DelayedTemporaryStrengthPower:diff()} 点临时力量。本回合内你每打出一张攻击牌，这张牌的耗能 -1（回合结束或打出后复原）。 |
 | 忘却极限 | 罕见 | 3 | 技能 | 抽牌直到手牌已满。本次抽到的每张非0费牌使你失去{HpLoss:diff()}点生命。 |
 | 搏命之灵 | 罕见 | 1 | 技能 | 失去{HpLoss:diff()}生命，获得{StrengthPower:diff()}点力量。若你的生命值低于50%，再获得{BonusStrength:diff()}点力量。 |
 | 裂帛灼金 | 罕见 | 4 | 技能 | 获得{Block:diff()}点[gold]格挡[/gold]、{ThornsPower:diff()}点[gold]荆棘[/gold]和{PlatingPower:diff()}层[gold]覆甲[/gold]。 |
@@ -88,8 +88,8 @@
 | 碧血丹心 | 稀有 | 3 | 技能 | 失去{HpLoss:diff()}生命，获得{Energy:energyIcons()}，抽{Cards:diff()}张牌，获得{ThornsPower:diff()}点[gold]荆棘[/gold]。 |
 | 炽鬃怒喝 | 稀有 | 0 | 技能 | 给予所有敌人{WeakPower:diff()}层[gold]虚弱[/gold]。 |
 | 长夜明焰 | 稀有 | 2 | 技能 | 获得{RegenPower:diff()}层[gold]再生[/gold]，结束你的回合。 |
-| 加码加价 | 稀有 | 1 | 技能 | 消耗抽牌堆中{Cards}张随机牌，获得{StrengthPower:diff()}点[gold]力量[/gold]。本场战斗的奖励金币清零。 |
-| 重整旗鼓 | 稀有 | 3 | 技能 | 移除你身上的所有减益，抽{Cards:diff()}张牌。 |
+| 加码加价 | 稀有 | 1 | 技能 | 消耗抽牌堆顶部的{Cards}张牌，获得{StrengthPower:diff()}点[gold]力量[/gold]。本场战斗的奖励金币清零。 |
+| 重整旗鼓 | 稀有 | 3 | 技能 | 移除你身上的[gold]易伤[/gold]、[gold]虚弱[/gold]与[gold]脆弱[/gold]，抽{Cards:diff()}张牌。 |
 | 活力迸发 | 稀有 | 1 | 技能 | 获得{Energy:energyIcons()}点能量。本回合你无法抽牌，也无法获得能量。 |
 
 ## 能力（20）
@@ -108,7 +108,7 @@
 | 炎啸狮咬 | 稀有 | 2 | 能力 | 每当你打出一张 0 费牌，获得 {BlazingLionBitePower:diff()} 点力量（由本能力追踪）。回合结束时，移除全部由其给予的力量，并对所有敌人造成等量伤害。 |
 | 炽鬃狮血 | 稀有 | 1 | 能力 | 你每缺失 {BlazingLionBloodPower:diff()} 点生命，便获得 1 点力量；生命恢复时相应回落。 |
 | 燃烧心火 | 稀有 | 3 | 能力 | 你的 0 费攻击牌造成的伤害 +{BurningHeartPower:diff()}。 |
-| 灼眼之鬃 | 稀有 | 2 | 能力 | 每当你因 [gold]荆棘[/gold] 对敌人造成伤害，再对该敌人造成一次等值伤害。 |
+| 灼目之鬃 | 稀有 | 2 | 能力 | 每当你因 [gold]荆棘[/gold] 对敌人造成伤害，再对该敌人造成一次等值伤害。 |
 | 死战不屈 | 稀有 | 2 | 能力 | 失去生命的效果无法将你的生命值降至0。攻击伤害仍可击倒你。 |
 | 殊死搏斗 | 稀有 | 1 | 能力 | 回合开始时，若上回合起你失去过生命，本回合获得{DesperateBrawlPower:diff()}点临时力量。 |
 | 重剑无锋 | 稀有 | 2 | 能力 | 每当你打出一张耗能不低于 2 的牌，获得其耗能 ×{EdgelessGreatswordPower:diff()} 的 [gold]格挡[/gold]。 |

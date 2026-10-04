@@ -32,7 +32,6 @@ public sealed class DuelingTechnique : DehyaCardBase
     {
         await CreatureCmd.TriggerAnim(base.Owner.Creature, "Cast", base.Owner.Character.CastAnimDelay);
         await PowerCmd.Apply<DelayedTemporaryStrengthPower>(choiceContext, base.Owner.Creature, base.DynamicVars["DelayedTemporaryStrengthPower"].BaseValue, base.Owner.Creature, this);
-        await PowerCmd.Apply<AttackPlayCostTrackerPower>(choiceContext, base.Owner.Creature, 1m, base.Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

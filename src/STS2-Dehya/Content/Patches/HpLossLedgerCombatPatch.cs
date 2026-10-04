@@ -40,6 +40,16 @@ internal static class HpLossLedgerCombatPatch
                 HpLossLedgerPower? ledger = await PowerCmd.Apply<HpLossLedgerPower>(
                     new ThrowingPlayerChoiceContext(), creature, 1m, null, null, silent: true);
                 ledger?.SetAmount(0, silent: true);
+                // Mirror 裁定 B1/B3(2026-10-04):费用追踪器同样常驻(燎原野火/剑斗技巧的降费
+                // 在打出前就要生效,由卡牌自挂为时已晚),与台账同点挂载。
+                if (!creature.HasPower<WildfireTrackerPower>())
+                {
+                    await PowerCmd.Apply<WildfireTrackerPower>(new ThrowingPlayerChoiceContext(), creature, 1m, null, null, silent: true);
+                }
+                if (!creature.HasPower<AttackPlayCostTrackerPower>())
+                {
+                    await PowerCmd.Apply<AttackPlayCostTrackerPower>(new ThrowingPlayerChoiceContext(), creature, 1m, null, null, silent: true);
+                }
             }
         }
         catch (Exception e)

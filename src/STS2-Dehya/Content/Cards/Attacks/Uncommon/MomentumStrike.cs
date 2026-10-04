@@ -50,6 +50,8 @@ public sealed class MomentumStrike : DehyaCardBase
 
     protected override void OnUpgrade()
     {
+        // Mirror 裁定 A1(2026-10-04):升级伤害 10→11(原案「1」为笔误,漏打十位)。
+        base.DynamicVars.Damage.UpgradeValueBy(1m);
         base.DynamicVars.Cards.UpgradeValueBy(1m);
     }
 }

@@ -38,9 +38,9 @@ public sealed class RaisedStakes : DehyaCardBase
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        // 先按抽牌堆现状随机选定,再逐张消耗(随机源用所属 RunState 的 CombatCardSelection)
+        // Mirror 裁定 B17(2026-10-04):消耗抽牌堆「顶部」{Cards} 张(索引0为顶,MoveToTopInternal Insert(0) 实证),非随机。
         List<CardModel> chosen = PileType.Draw.GetPile(base.Owner).Cards
-            .TakeRandom((int)base.DynamicVars.Cards.BaseValue, base.Owner.RunState.Rng.CombatCardSelection)
+            .Take((int)base.DynamicVars.Cards.BaseValue)
             .ToList();
         foreach (CardModel card in chosen)
         {

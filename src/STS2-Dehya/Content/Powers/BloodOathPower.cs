@@ -28,7 +28,7 @@ public sealed class BloodOathPower : DehyaPowerBase
         {
             return;
         }
-        if ((decimal)base.Owner.CurrentHp * 2m >= (decimal)base.Owner.MaxHp)
+        if ((decimal)base.Owner.CurrentHp * 2m > (decimal)base.Owner.MaxHp)
         {
             return;
         }

@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
@@ -33,21 +34,20 @@ public sealed class WildfireTrackerPower : PowerModel
         {
             return Task.CompletedTask;
         }
-        foreach (CardModel card in PileType.Hand.GetPile(base.Owner.Player).Cards.ToList())
+        // Mirror 裁定 B1/B3(2026-10-04):此牌在任意牌堆都计入;修正持续到回合结束或打出后(AddThisTurnOrUntilPlayed)。
+        PlayerCombatState? piles = base.Owner.Player?.PlayerCombatState;
+        if (piles is null)
+        {
+            return Task.CompletedTask;
+        }
+        foreach (CardModel card in piles.Hand.Cards.Concat(piles.DrawPile.Cards).Concat(piles.DiscardPile.Cards).ToList())
         {
             if (card is BlazingWildfire)
             {
-                card.EnergyCost.AddThisTurn(-1);
+                card.EnergyCost.AddThisTurnOrUntilPlayed(-1);
             }
         }
         return Task.CompletedTask;
     }
 
-    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
-    {
-        if (participants.Contains(base.Owner))
-        {
-            await PowerCmd.Remove(this);
-        }
-    }
 }
