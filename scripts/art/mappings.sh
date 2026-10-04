@@ -1,10 +1,15 @@
-# 母版映射表：ART_SOURCE_DIR 下完整相对路径（含扩展名）→ 实现类名。
-# 不要求设计者改目录或文件名；格式由 ImageMagick 解码。右侧必须等于内容类名。
-declare -A CARDS=([卡图/示例打击.png]=DehyaStrike [卡图/示例防御.png]=DehyaDefend [卡图/示例昂扬.png]=DehyaVigor)
-declare -A RELICS=([遗物/示例坠饰.png]=DehyaLocket)
-declare -A POTIONS=([药水/示例药剂.png]=DehyaTonic)
-declare -A POWERS=([buff图标/示例昂扬.png]=DehyaVigorPower)
-declare -A ENCHANTMENTS=()
-ANCIENT_CARDS=""  # 空格分隔的先古卡类名,对应 606×852 图窗。
-SUPPORT_BADGE_SOURCE="buff图标/支援徽记.png"  # 同样使用完整相对路径；空值表示不用共享徽记。
+# 母版映射表:ART_SOURCE_DIR 下完整相对路径(含扩展名) → 实现类名。
+# 2026-10-04 美术轮:88 卡全量 + 可见 Power 29 + 遗物 4 + 药水 2 + 事件肖像 3。
+# 改名对照(裁定 C1/C2): 赤焰流火.png→BlazingTorrent、灼目之鬃.png→DazzlingMane;美术原件保留设计者写法。
+declare -A CARDS=([卡图/打击.png]=DehyaStrike [卡图/防御.png]=DehyaDefend [卡图/熔铁之拳.png]=MoltenIronFist [卡图/以守待攻.png]=BracedStrike [卡图/怒势疾迅.png]=FuriousRush [卡图/铓辉灿漫.png]=BladeBrilliance [卡图/赤焰流火.png]=BlazingTorrent [卡图/狮牙之怒.png]=LionFangFury [卡图/坚毅不倒.png]=Unbowed [卡图/卸甲强袭.png]=ArmorBreaker [卡图/纵横沙海.png]=Sandswept [卡图/紧急止血.png]=Hemostasis [卡图/炽鬃狮血.png]=BlazingLionBlood [卡图/迎头猛击.png]=HeadOnSlam [卡图/焰灼夜幕.png]=ScorchingNightveil [卡图/灼热之血.png]=SearingBlood [卡图/包扎伤口.png]=BandageWounds [卡图/铁血之剑.png]=IronBloodedBlade [卡图/炽鬃怒喝.png]=FierceManeRoar [卡图/两败俱伤.png]=MutualHarm [卡图/搏命之灵.png]=GambitOfLife [卡图/燃血成灰.png]=BloodToAshes [卡图/染血纷争.png]=BloodstainedStrife [卡图/鎏金突击.png]=GildedAssault [卡图/雇佣关系.png]=MercenaryContract [卡图/燎原野火.png]=BlazingWildfire [卡图/快速调整.png]=QuickRecalibration [卡图/烈狮怒瞳.png]=LionGlare [卡图/格挡猛击.png]=GuardedSmash [卡图/血之誓约.png]=BloodOath [卡图/炽热余烬.png]=ScorchingEmbers [卡图/炎啸狮咬.png]=BlazingLionBite [卡图/锤砺锋芒.png]=TemperedEdge [卡图/净焰剑护.png]=FlameWardStrike [卡图/渐入佳境.png]=AscendingMastery [卡图/终结之斩.png]=FinishingSlash [卡图/长夜明焰.png]=LongNightFlame [卡图/拳甲打击.png]=GauntletStrike [卡图/舍身打击.png]=SacrificialStrike [卡图/蓄势打击.png]=MomentumStrike [卡图/忘却极限.png]=ForgottenLimits [卡图/烈狮血性.png]=FierceLionSpirit [卡图/灼目之鬃.png]=DazzlingMane [卡图/黄沙蔽日.png]=BlindingSands [卡图/余焰不息.png]=UndyingEmbers [卡图/裂帛灼金.png]=GildedRend [卡图/加码加价.png]=RaisedStakes [卡图/殊死搏斗.png]=DesperateBrawl [卡图/步步为营.png]=SteadyEncampment [卡图/借力打力.png]=BorrowedForce [卡图/剑斗技巧.png]=DuelingTechnique [卡图/燃烧心火.png]=BurningHeart [卡图/重金悬赏.png]=HeavyBounty [卡图/斩铁断金.png]=IronCleave [卡图/剑斩群岳.png]=MountainCleaver [卡图/血溅沙场.png]=BloodiedBattlefield [卡图/负血奋进.png]=BleedingAdvance [卡图/整装待发.png]=BattleReady [卡图/悬赏委托.png]=BountyContract [卡图/加固运输.png]=ReinforcedConvoy [卡图/预支定金.png]=AdvancePayment [卡图/驰骋荒漠.png]=DesertCharge [卡图/重剑无锋.png]=EdgelessGreatsword [卡图/千锤百炼.png]=HundredHammers [卡图/咆哮之剑.png]=RoaringBlade [卡图/活力迸发.png]=VigorBurst [卡图/血气方刚.png]=HotBlooded [卡图/至痛至怒.png]=AgonyAndRage [卡图/以逸待劳.png]=PatientAmbush [卡图/死战不屈.png]=DeathlessDefiance [卡图/夜尽天明.png]=Dawnbreak [卡图/焚势掠地.png]=BlazingAdvance [卡图/极速突击.png]=RapidOnslaught [卡图/奉还痛楚.png]=PainRepayment [卡图/铜墙铁壁.png]=IronBulwark [卡图/碧血丹心.png]=CrimsonDevotion [卡图/热血沸腾.png]=BoilingBlood [卡图/伤口处理.png]=TendWounds [卡图/重整旗鼓.png]=Regroup [卡图/黄沙百战.png]=VeteranOfSands [卡图/调整呼吸.png]=AdjustBreathing [卡图/准备万全.png]=FullyPrepared [卡图/灼热形态.png]=ScorchingForm [卡图/养精蓄锐.png]=ConservedMight [卡图/当头棒喝.png]=AwakeningBlow [卡图/明映万乘.png]=RadiantOnslaught [卡图/处变不惊.png]=Unfazed [卡图/陷阵之志.png]=LineBreaker)
+declare -A RELICS=([遗物/伤痕累累的木桩.png]=ScarredTrainingPost [遗物/止痛剂.png]=Painkillers [遗物/炽金之锅.png]=GildedCookpot [遗物/玩具木剑.png]=ToyWoodenSword)
+# 臂铠对母版未交付(Mirror E1 补画中),交付后在 RELICS 追加两行——完整审计在此之前保持两处已知缺件。
+declare -A POTIONS=([药水/甘甜清泉.png]=SweetSpring [药水/佣兵酒壶.png]=MercenaryFlask)
+# 血溅沙场-图标→失血台账、加码加价-图标→奖励清零标记(裁定 J1/J2 转可见 Power);重金悬赏-图标无持续宿主,闲置。
+declare -A POWERS=([图标/两败俱伤-图标.png]=MutualHarmPower [图标/余焰不息-图标.png]=UndyingEmbersPower [图标/借力打力-图标.png]=BorrowedForceMarkerPower [图标/剑斗技巧-图标.png]=DelayedTemporaryStrengthPower [图标/加码加价-图标.png]=NoVictoryGoldPower [图标/包扎伤口-图标.png]=BandageWoundsMarkerPower [图标/咆哮之剑-图标.png]=RoaringBladePower [图标/夜尽天明-图标.png]=DawnbreakMarkPower [图标/悬赏委托-图标.png]=BountyMarkPower [图标/整装待发-图标.png]=DelayedStrengthPower [图标/极速突击-图标.png]=RapidOnslaughtPower [图标/染血纷争-图标.png]=BloodstainedStrifePower [图标/步步为营-图标.png]=SteadyEncampmentMarkerPower [图标/死战不屈-图标.png]=DeathlessDefiancePower [图标/殊死搏斗-图标.png]=DesperateBrawlPower [图标/活力迸发-图标.png]=VigorBurstLockPower [图标/灼热形态-图标.png]=ScorchingFormPower [图标/灼目之鬃-图标.png]=DazzlingManePower [图标/炎啸狮咬-图标.png]=BlazingLionBitePower [图标/炽鬃狮血-图标.png]=BlazingLionBloodPower [图标/烈狮血性-图标.png]=FierceLionSpiritPower [图标/焰灼夜幕-图标.png]=ScorchingNightveilPower [图标/燃血成灰-图标.png]=BloodToAshesPower [图标/纵横沙海-图标.png]=SandsweptPower [图标/血之誓约-图标.png]=BloodOathPower [图标/血溅沙场-图标.png]=HpLossLedgerPower [图标/重剑无锋-图标.png]=EdgelessGreatswordPower [图标/铓辉灿漫-图标.png]=BladeBrilliancePower [图标/雇佣关系-图标.png]=MercenaryContractPower)
+declare -A ENCHANTMENTS=()  # 设计案无附魔内容,示例特训已删;徽记留空回落 RitsuLib 共享占位。
+ANCIENT_CARDS="FuriousRush BladeBrilliance"  # 先古卡 606×852 图窗。
+SUPPORT_BADGE_SOURCE=""
 OUTLINE_COLOR="#f4cf70"
+# 事件肖像(1672×941,art/events.sh 派生):事件1/2/3 按设计案章节顺序对应三个新增事件。
+declare -A EVENTS=([图片/事件1.png]=TransportCommission [图片/事件2.png]=DangerousCompanion [图片/事件3.png]=ScorchingFlare)

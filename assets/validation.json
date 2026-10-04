@@ -1,4 +1,23 @@
 {
-  "textures": {},
+  "textures": {
+    "res://STS2-Dehya/images/events/TransportCommission.png": {
+      "size": [
+        1672,
+        941
+      ]
+    },
+    "res://STS2-Dehya/images/events/DangerousCompanion.png": {
+      "size": [
+        1672,
+        941
+      ]
+    },
+    "res://STS2-Dehya/images/events/ScorchingFlare.png": {
+      "size": [
+        1672,
+        941
+      ]
+    }
+  },
   "files": []
 }

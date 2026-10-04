@@ -10,5 +10,5 @@ validate_mapping() {
     local path
     for path in "${!mapping[@]}"; do require_art_source "$path"; done
 }
-for family in CARDS RELICS POTIONS POWERS ENCHANTMENTS; do validate_mapping "$family"; done
+for family in CARDS RELICS POTIONS POWERS ENCHANTMENTS EVENTS; do validate_mapping "$family"; done
 if [[ -n "$SUPPORT_BADGE_SOURCE" ]]; then require_art_source "$SUPPORT_BADGE_SOURCE"; fi
