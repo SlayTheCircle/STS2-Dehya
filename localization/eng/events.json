@@ -1,7 +1,7 @@
 {
   "COLOSSAL_FLOWER.pages.DEHYA_THROW_PROBE_COMMON.description": "You grab something from your belt and hurl it at the razor-sharp bloom.\n\nIts keen petals shred the bottle in an instant.\n\nPlainly this thing preys on anything that dares come near — better keep your distance.",
   "COLOSSAL_FLOWER.pages.DEHYA_THROW_PROBE_RARE.description": "You grab something from your belt and hurl it at the razor-sharp bloom.\n\nIts keen petals shred the bottle in an instant, and the scattering shards seem to rouse something.\n\nPlainly this thing preys on anything that dares come near — better keep your distance.",
-  "COLOSSAL_FLOWER.pages.INITIAL.options.DEHYA_THROW_PROBE.description": "Lose a random [gold]potion[/gold]. Upgrade cards in your deck (1 for a Common potion, 2 for a Rare).",
+  "COLOSSAL_FLOWER.pages.INITIAL.options.DEHYA_THROW_PROBE.description": "Lose a random [gold]potion[/gold]. Upgrade cards in your deck (1 for a Common potion, 2 for Uncommon or Rare).",
   "COLOSSAL_FLOWER.pages.INITIAL.options.DEHYA_THROW_PROBE.title": "Throw Something to Test It",
   "COLOSSAL_FLOWER.pages.INITIAL.options.DEHYA_THROW_PROBE_LOCKED.description": "Requires at least one potion.",
   "COLOSSAL_FLOWER.pages.INITIAL.options.DEHYA_THROW_PROBE_LOCKED.title": "Locked",

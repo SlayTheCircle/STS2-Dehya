@@ -114,7 +114,7 @@ internal static class VanillaEventDehyaOptions
     }
 
     /// <summary>巨大花卉·向它扔些东西试探:失去一瓶随机药水,升级 N 张随机牌
-    /// (Mirror 裁定 D8/药水压缩机先例:普通药水 1 张、稀有药水 2 张;Uncommon 暂按 1 张口径,待追认)。
+    /// (Mirror 裁定 D8→L4 修订:普通药水 1 张、罕见与稀有药水 2 张;结果页按 1/2 张二分共用文案)。
     /// 无药水时锁定(null handler),文案「锁定 至少需要一瓶药水才能选择」。</summary>
     private static EventOption? BuildFlowerProbeOption(EventModel evt)
     {
@@ -131,8 +131,8 @@ internal static class VanillaEventDehyaOptions
     {
         Player player = evt.Owner!;
         var potion = evt.Rng.NextItem(player.Potions.ToList());
-        int upgrades = potion.Rarity == PotionRarity.Rare ? 2 : 1;
-        string potionName = potion.Rarity == PotionRarity.Rare ? "rare" : "common";
+        int upgrades = potion.Rarity == PotionRarity.Common ? 1 : 2;  // L4:罕见也算 2 张
+        string potionName = potion.Rarity == PotionRarity.Common ? "common" : "rare";
         potion.Discard();
         List<CardModel> upgradable = player.Deck.Cards.Where(static c => c.IsUpgradable).ToList();
         for (int i = 0; i < upgrades && upgradable.Count > 0; i++)

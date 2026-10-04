@@ -17,6 +17,62 @@
         1672,
         941
       ]
+    },
+    "res://STS2-Dehya/images/characters/dehya_character_icon.png": {
+      "size": [
+        128,
+        128
+      ]
+    },
+    "res://STS2-Dehya/images/characters/dehya_character_icon_outline.png": {
+      "size": [
+        128,
+        128
+      ]
+    },
+    "res://STS2-Dehya/images/characters/dehya_map_marker.png": {
+      "size": [
+        128,
+        128
+      ]
+    },
+    "res://STS2-Dehya/images/characters/dehya_select.png": {
+      "size": [
+        264,
+        380
+      ],
+      "transparent": true
+    },
+    "res://STS2-Dehya/images/characters/dehya_select_locked.png": {
+      "size": [
+        264,
+        380
+      ],
+      "transparent": true
+    },
+    "res://STS2-Dehya/images/hands/dehya_hand_pointing.png": {
+      "size": [
+        341,
+        512
+      ]
+    },
+    "res://STS2-Dehya/images/hands/dehya_hand_rock.png": {
+      "size": [
+        341,
+        512
+      ]
+    },
+    "res://STS2-Dehya/images/hands/dehya_hand_scissors.png": {
+      "size": [
+        341,
+        512
+      ]
+    },
+    "res://STS2-Dehya/images/hands/dehya_hand_paper.png": {
+      "size": [
+        341,
+        512
+      ]
     }
   },
   "files": []

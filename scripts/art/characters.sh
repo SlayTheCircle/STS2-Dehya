@@ -9,11 +9,10 @@ convert "$DST/characters/dehya_character_icon.png" -bordercolor none -border 4 -
 convert -size 128x128 xc:'#f4cf70' "$TMP/iconmask.png" -alpha off -compose CopyOpacity \
     -composite "$DST/characters/dehya_character_icon_outline.png"
 convert "$SRC/图片/头像兼用地图标记.png" -resize 128x128 "$DST/characters/dehya_map_marker.png"
-# 选人半身:图片/选人界面小图.jpg 等比缩至宽 264 + 灰阶锁定版。
-# 注意(J3):Mirror E5 口径为「从大图裁出人物部分」,当前直接用小图整图,裁框人工校准待验收轮复核。
-convert "$SRC/图片/选人界面小图.jpg" -resize 264x "$DST/characters/dehya_select.png"
+# 选人半身:透明人物母版等比缩至宽 264 + 灰阶锁定版;原始小图保持不变。
+convert "$SRC/图片/选人半身.png" -resize 264x "$DST/characters/dehya_select.png"
 convert "$DST/characters/dehya_select.png" -modulate 60,0,100 "$DST/characters/dehya_select_locked.png"
-# 联机手势 ×4(猜拳/:石头/剪刀/布/指 → rock/scissors/paper/pointing,512²,Navia 同款)
+# 联机手势 ×4(猜拳/:石头/剪刀/布/指 → rock/scissors/paper/pointing,母版 2:3 等比派生为 341×512)
 convert "$SRC/猜拳/石头.png" -resize 512x512 "$DST/hands/dehya_hand_rock.png"
 convert "$SRC/猜拳/剪刀.png" -resize 512x512 "$DST/hands/dehya_hand_scissors.png"
 convert "$SRC/猜拳/布.png" -resize 512x512 "$DST/hands/dehya_hand_paper.png"

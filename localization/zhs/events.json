@@ -1,7 +1,7 @@
 {
   "COLOSSAL_FLOWER.pages.DEHYA_THROW_PROBE_COMMON.description": "你顺手抓起腰间的什么东西，向着那锋利的花卉扔了出去。\n\n锐利的花瓣瞬间将那瓶子刺了个粉碎。\n\n看来这东西会捕食试图靠近它的一切事物——还是不要靠近为妙。",
   "COLOSSAL_FLOWER.pages.DEHYA_THROW_PROBE_RARE.description": "你顺手抓起腰间的什么东西，向着那锋利的花卉扔了出去。\n\n锐利的花瓣瞬间将那瓶子刺了个粉碎，飞溅的碎片似乎唤醒了些什么。\n\n看来这东西会捕食试图靠近它的一切事物——还是不要靠近为妙。",
-  "COLOSSAL_FLOWER.pages.INITIAL.options.DEHYA_THROW_PROBE.description": "失去一瓶随机[gold]药水[/gold]。升级你牌组中的牌（普通药水1张，稀有药水2张）。",
+  "COLOSSAL_FLOWER.pages.INITIAL.options.DEHYA_THROW_PROBE.description": "失去一瓶随机[gold]药水[/gold]。升级你牌组中的牌（普通药水1张，罕见/稀有药水2张）。",
   "COLOSSAL_FLOWER.pages.INITIAL.options.DEHYA_THROW_PROBE.title": "向它扔些东西试探",
   "COLOSSAL_FLOWER.pages.INITIAL.options.DEHYA_THROW_PROBE_LOCKED.description": "至少需要一瓶药水才能选择。",
   "COLOSSAL_FLOWER.pages.INITIAL.options.DEHYA_THROW_PROBE_LOCKED.title": "锁定",

@@ -12,3 +12,7 @@ validate_mapping() {
 }
 for family in CARDS RELICS POTIONS POWERS ENCHANTMENTS EVENTS; do validate_mapping "$family"; done
 if [[ -n "$SUPPORT_BADGE_SOURCE" ]]; then require_art_source "$SUPPORT_BADGE_SOURCE"; fi
+# 角色派生的独立输入同样在任何资源写入前检查。
+for path in 图片/头像兼用地图标记.png 图片/选人半身.png 猜拳/石头.png 猜拳/剪刀.png 猜拳/布.png 猜拳/指.png; do
+    require_art_source "$path"
+done
