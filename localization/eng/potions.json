@@ -1,4 +1,6 @@
 {
-  "STS2_DEHYA_POTION_DEHYA_TONIC.title": "Dehya Tonic",
-  "STS2_DEHYA_POTION_DEHYA_TONIC.description": "Gain 8 Block."
+  "STS2_DEHYA_POTION_MERCENARY_FLASK.description": "Gain {StrengthPower:diff()} [gold]Strength[/gold], lose {DexLoss} [gold]Dexterity[/gold].",
+  "STS2_DEHYA_POTION_MERCENARY_FLASK.title": "Mercenary Flask",
+  "STS2_DEHYA_POTION_SWEET_SPRING.description": "Gain {MaxHpGain} Max HP, then heal {HealPercent}% of your Max HP.",
+  "STS2_DEHYA_POTION_SWEET_SPRING.title": "Sweet Spring"
 }
