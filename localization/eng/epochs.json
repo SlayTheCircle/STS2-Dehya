@@ -1,1 +1,22 @@
-{}
+{
+  "STORY_DEHYA": "Dehya",
+
+  "STS2_DEHYA_EPOCH_1.title": "The Commission",
+  "STS2_DEHYA_EPOCH_1.description": "The Flame-Mane of the Eremites had just wrapped up a short vacation and gotten back to work.\nLately, talk of the tower kept growing — and so did her curiosity.\n\"A commission — please bring me back something about the tower! I'll have your reward ready!\"\nShe took the commission down, packed her bags, and set out for the Spire.",
+  "STS2_DEHYA_EPOCH_1.unlockInfo": "Complete a run as Dehya.",
+  "STS2_DEHYA_EPOCH_1.unlockText": "Unlock: Dehya becomes a playable character.",
+  "STS2_DEHYA_EPOCH_1.unlock": "Dehya has arrived at the Spire.",
+
+  "STS2_DEHYA_EPOCH_2.title": "Out of Her Element",
+  "STS2_DEHYA_EPOCH_2.description": "Used to working under the desert sun, Dehya found the Spire's damp, shadowed air hard to bear at first, and spent days acclimating at its foot.\nThere she struck up a pleasant acquaintance with the great whale — and when she learned it was looking for souls willing to climb, she agreed on the spot.\n\"Of course — a mercenary never works for free.\"\n\"Then... take... my power...\"",
+  "STS2_DEHYA_EPOCH_2.unlockInfo": "Win a run as Dehya.",
+
+  "STS2_DEHYA_EPOCH_3.title": "The Climb",
+  "STS2_DEHYA_EPOCH_3.description": "Most of the Spire's denizens were creatures Dehya had never even heard of — dangerous, mysterious things that attacked anything that wandered into their sight.\nBut with masterful swordplay and burning fists, she could always \"persuade\" whatever unwelcome guest blocked her path.\nBy now she was a seasoned climber — though she still caught herself missing Sumeru's wine.",
+  "STS2_DEHYA_EPOCH_3.unlockInfo": "Defeat 3 bosses as Dehya.",
+
+  "STS2_DEHYA_EPOCH_4.title": "The Architect",
+  "STS2_DEHYA_EPOCH_4.description": "The man who owned so magnificent a tower called himself merely its architect. He sounded almost modest.\nYet the masked man was clearly nothing like the cement masons you might meet on any Sumeru street.\nTime and again, his interference forced her climb to a halt just short of the summit.\nBut Dehya has no intention of stopping before she reaches the top.",
+  "STS2_DEHYA_EPOCH_4.unlockInfo": "Win an Ascension 1 run as Dehya.",
+  "STS2_DEHYA_EPOCH_4.unlockText": "Unlock: Sweet Spring, [blue]Mercenary Flask[/blue], [blue]Gilded Cookpot[/blue]."
+}

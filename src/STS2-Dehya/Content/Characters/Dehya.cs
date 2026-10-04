@@ -11,6 +11,7 @@ using DehyaMod.Content.Cards;
 using DehyaMod.Content.PotionPools;
 using DehyaMod.Content.RelicPools;
 using DehyaMod.Content.Relics;
+using DehyaMod.Content.Timeline;
 
 namespace DehyaMod.Content.Characters;
 
@@ -20,6 +21,10 @@ namespace DehyaMod.Content.Characters;
 /// 世界线等深层模块为可选代码(见 docs/dev/worldline.md)。
 /// </summary>
 [RegisterCharacter]
+[UnlockEpochAfterRunAs(typeof(Dehya1Epoch))]        // 第一章·委托:完成一局迪希雅
+[UnlockEpochAfterWinAs(typeof(Dehya2Epoch))]        // 第二章·水土不服:首次通关
+[UnlockEpochAfterBossVictories(typeof(Dehya3Epoch), 3)] // 第三章·攀登:累计击败 3 首领
+[UnlockEpochAfterAscensionOneWin(typeof(Dehya4Epoch))] // 第四章·建筑师:进阶 1 通关(vanilla 第七章同型)
 public sealed class Dehya : CharacterModel
 {
     public override Color NameColor => new Color("E8B23AFF");

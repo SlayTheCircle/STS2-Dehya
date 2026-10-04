@@ -1,4 +1,7 @@
+using System.Linq;
+using DehyaMod.Content.Timeline;
 using Godot;
+using MegaCrit.Sts2.Core.Unlocks;
 using STS2RitsuLib.Scaffolding.Content;
 
 namespace DehyaMod.Content.CardPools;
@@ -24,4 +27,18 @@ public sealed class DehyaCardPool : TypeListCardPoolModel
     public override Color EnergyOutlineColor => new Color("8A6210");
 
     public override bool IsColorless => false;
+
+    // 世界线门控(RegentCardPool/NaviaCardPool 同款):第二章·水土不服揭示前,章内 3 卡不进奖励/商店池。
+    protected override System.Collections.Generic.IEnumerable<MegaCrit.Sts2.Core.Models.CardModel> FilterThroughEpochs(
+        UnlockState unlockState,
+        System.Collections.Generic.IEnumerable<MegaCrit.Sts2.Core.Models.CardModel> cards)
+    {
+        var list = cards.ToList();
+        if (!unlockState.IsEpochRevealed<Dehya2Epoch>())
+        {
+            list.RemoveAll(c => Dehya2Epoch.CardUnlockTypes.Any(t => MegaCrit.Sts2.Core.Models.ModelDb.GetId(t) == c.Id));
+        }
+        return list;
+    }
 }
+

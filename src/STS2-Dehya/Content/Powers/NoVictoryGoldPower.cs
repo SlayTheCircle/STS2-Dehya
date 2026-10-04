@@ -1,5 +1,4 @@
 using MegaCrit.Sts2.Core.Entities.Powers;
-using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Models;
 
 using STS2RitsuLib.Interop.AutoRegistration;

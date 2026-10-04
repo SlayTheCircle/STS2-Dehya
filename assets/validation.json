@@ -73,6 +73,54 @@
         341,
         512
       ]
+    },
+    "res://images/timeline/epoch_portraits/sts2_dehya_epoch_1.png": {
+      "size": [
+        1672,
+        941
+      ]
+    },
+    "res://STS2-Dehya/images/timeline/sts2_dehya_epoch_1_thumb.png": {
+      "size": [
+        272,
+        174
+      ]
+    },
+    "res://images/timeline/epoch_portraits/sts2_dehya_epoch_2.png": {
+      "size": [
+        1672,
+        941
+      ]
+    },
+    "res://STS2-Dehya/images/timeline/sts2_dehya_epoch_2_thumb.png": {
+      "size": [
+        272,
+        174
+      ]
+    },
+    "res://images/timeline/epoch_portraits/sts2_dehya_epoch_3.png": {
+      "size": [
+        1672,
+        941
+      ]
+    },
+    "res://STS2-Dehya/images/timeline/sts2_dehya_epoch_3_thumb.png": {
+      "size": [
+        272,
+        174
+      ]
+    },
+    "res://images/timeline/epoch_portraits/sts2_dehya_epoch_4.png": {
+      "size": [
+        1672,
+        941
+      ]
+    },
+    "res://STS2-Dehya/images/timeline/sts2_dehya_epoch_4_thumb.png": {
+      "size": [
+        272,
+        174
+      ]
     }
   },
   "files": []

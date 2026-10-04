@@ -1,1 +1,22 @@
-{}
+{
+  "STORY_DEHYA": "迪希雅",
+
+  "STS2_DEHYA_EPOCH_1.title": "委托",
+  "STS2_DEHYA_EPOCH_1.description": "镀金旅团的「炽鬃之狮」结束了她短暂的假期，重新回到了工作中。\n最近，有关高塔的传言越来越多，她不禁有些好奇。\n「委托——请帮我带回一些高塔有关的素材吧！我会准备好相应的报酬的！」\n她揭下这张委托，打点好行囊，向着高塔进发。",
+  "STS2_DEHYA_EPOCH_1.unlockInfo": "使用迪希雅完成一次攀登。",
+  "STS2_DEHYA_EPOCH_1.unlockText": "解锁：迪希雅成为一名可玩角色。",
+  "STS2_DEHYA_EPOCH_1.unlock": "迪希雅来到了尖塔。",
+
+  "STS2_DEHYA_EPOCH_2.title": "水土不服",
+  "STS2_DEHYA_EPOCH_2.description": "常年在荒漠中工作的迪希雅起初并不适应尖塔潮湿而阴暗的气氛，她在塔底花了好几天适应这里的环境。\n期间她和塔底的大鲸鱼相谈甚欢。得知对方正在寻找攀登尖塔的有志之士时，她爽快地答应了下来。\n「当然，佣兵可不会白给人干活。」\n「那就……收下……我的力量……」",
+  "STS2_DEHYA_EPOCH_2.unlockInfo": "使用迪希雅通关一次。",
+
+  "STS2_DEHYA_EPOCH_3.title": "攀登",
+  "STS2_DEHYA_EPOCH_3.description": "尖塔的敌人大多是迪希雅闻所未闻的生物。它们危险而神秘，会攻击一切走进它们视野的家伙。\n不过凭借精湛的剑术与燃烧的拳头，她总能「说服」那些拦路的不速之客。\n如今的她已是熟练的攀登客——不过，她还是经常会想念须弥的酒。",
+  "STS2_DEHYA_EPOCH_3.unlockInfo": "使用迪希雅累计击败 3 个首领。",
+
+  "STS2_DEHYA_EPOCH_4.title": "建筑师",
+  "STS2_DEHYA_EPOCH_4.description": "坐拥如此宏伟尖塔的男人，居然只以建筑师自居。听起来他还挺谦逊的。\n但戴着面具的男人显然与迪希雅想象的不同——他并不是须弥街头随处可见的水泥工匠。\n在男人的阻拦下，登上塔顶的脚步一次次被迫停下。\n但在到达顶点之前，迪希雅并不打算停下脚步。",
+  "STS2_DEHYA_EPOCH_4.unlockInfo": "使用迪希雅通关进阶 1。",
+  "STS2_DEHYA_EPOCH_4.unlockText": "解锁：甘甜清泉、[blue]佣兵酒壶[/blue]、[blue]炽金之锅[/blue]。"
+}
