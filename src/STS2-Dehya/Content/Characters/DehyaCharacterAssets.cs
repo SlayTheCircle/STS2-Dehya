@@ -4,23 +4,26 @@ using STS2RitsuLib.Scaffolding.Characters;
 namespace DehyaMod.Content.Characters;
 
 /// <summary>
-/// 角色资产档案(美术轮 2026-10-04):战斗场景/图集 tscn 与卡牌拖尾仍借原版铁甲
-/// (动画模块未建,裁定 J4/J5);头像/描边/地图标记/透明选人半身/锁定版与联机手势×4 已换自有派生资产
-/// (prep-art 的 art/characters.sh 产出)。选人背景与图标 tscn 槽位待场景轮接入。
+/// 角色资产档案(多形态立绘轮 2026-10-05,Charlotte 无 Spine 路线):战斗形象/商店/休息点/选人背景/
+/// 图标均为自建场景(单 Sprite2D + 原版节点契约脚本);能量计与卡牌拖尾暂借铁甲(动画轮后续替换)。
+/// 战斗姿势切换由 DehyaPosePatch 接管(站/剑斩/挥拳/技能/受击五态,裁定 E8/J4)。
 /// </summary>
 internal static class DehyaCharacterAssets
 {
     public static void Register()
     {
         CharacterAssetProfile fallback = CharacterAssetProfiles.Ironclad();
-        CharacterUiAssetSet ui = fallback.Ui!;
         CharacterAssetProfile profile = new CharacterAssetProfile(
-            fallback.Scenes,
+            new CharacterSceneAssetSet(
+                "res://STS2-Dehya/scenes/characters/dehya_character.tscn",
+                fallback.Scenes!.EnergyCounterPath,
+                "res://STS2-Dehya/scenes/characters/dehya_merchant.tscn",
+                "res://STS2-Dehya/scenes/characters/dehya_rest_site.tscn"),
             new CharacterUiAssetSet(
                 "res://STS2-Dehya/images/characters/dehya_character_icon.png",
                 "res://STS2-Dehya/images/characters/dehya_character_icon_outline.png",
-                ui.IconPath,
-                ui.CharacterSelectBgPath,
+                "res://STS2-Dehya/scenes/characters/dehya_icon.tscn",
+                "res://STS2-Dehya/scenes/characters/dehya_char_select_bg.tscn",
                 "res://STS2-Dehya/images/characters/dehya_select.png",
                 "res://STS2-Dehya/images/characters/dehya_select_locked.png",
                 // 开局转场材质:留空会按条目名推导 mod 下不存在的路径直接炸开局(模板实测教训),先指通用淡入淡出。

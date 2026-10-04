@@ -1,6 +1,6 @@
-# 角色本体资产:本轮只派生「有代码消费方」的槽位(Navia characters.sh 范式裁剪)。
-# 六态立绘(站立/技能/受击/倒下/商店/火堆)与剑斩/挥拳攻击动作属动画模块输入,
-# 场景(.tscn)就绪前不派生入包(裁定 J4);选人背景为 tscn 槽,同样待场景轮(J5)。
+# 角色本体资产:头像/选人/手势 + 多形态立绘套(2026-10-05 场景轮,J4/J5 解除)。
+# 立绘母版 1024×1536(剑斩/倒下为横构图 1536×1024)原尺寸直入;倒下为姿势储备,暂无消费方
+# (死亡另有表现,与 Charlotte 的 down 同处理);选人背景大图 1672×941 直入 tscn 槽。
 mkdir -p "$DST/characters" "$DST/hands"
 # 头像 128² + 程序化描边 + 地图标记(母版一图三用:图片/头像兼用地图标记.png)
 convert "$SRC/图片/头像兼用地图标记.png" -resize 128x128 "$DST/characters/dehya_character_icon.png"
@@ -17,4 +17,14 @@ convert "$SRC/猜拳/石头.png" -resize 512x512 "$DST/hands/dehya_hand_rock.png
 convert "$SRC/猜拳/剪刀.png" -resize 512x512 "$DST/hands/dehya_hand_scissors.png"
 convert "$SRC/猜拳/布.png" -resize 512x512 "$DST/hands/dehya_hand_paper.png"
 convert "$SRC/猜拳/指.png" -resize 512x512 "$DST/hands/dehya_hand_pointing.png"
-echo '角色资产: 头像/描边/标记 + 选人/锁定 + 联机手×4 就绪'
+# ---- 多形态立绘(Charlotte 无 Spine 路线):战斗五态 + 商店/火堆 + 倒下储备 + 选人背景 ----
+convert "$SRC/立绘/站立.png" "$DST/characters/dehya_normal.png"
+convert "$SRC/立绘/剑斩.png" "$DST/characters/dehya_attack_slash.png"
+convert "$SRC/立绘/挥拳.png" "$DST/characters/dehya_attack_punch.png"
+convert "$SRC/立绘/技能.png" "$DST/characters/dehya_skill.png"
+convert "$SRC/立绘/受击.png" "$DST/characters/dehya_hit.png"
+convert "$SRC/立绘/倒下.png" "$DST/characters/dehya_down.png"
+convert "$SRC/立绘/商店.png" "$DST/characters/dehya_merchant.png"
+convert "$SRC/立绘/火堆.png" "$DST/characters/dehya_rest_site.png"
+convert "$SRC/图片/选人界面大图.png" "$DST/characters/dehya_char_select_bg.png"
+echo '角色资产: 头像/描边/标记 + 选人/锁定 + 联机手×4 + 立绘×8 + 选人背景就绪'

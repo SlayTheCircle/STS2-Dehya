@@ -121,6 +121,60 @@
         272,
         174
       ]
+    },
+    "res://STS2-Dehya/images/characters/dehya_normal.png": {
+      "size": [
+        1024,
+        1536
+      ]
+    },
+    "res://STS2-Dehya/images/characters/dehya_attack_slash.png": {
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    "res://STS2-Dehya/images/characters/dehya_attack_punch.png": {
+      "size": [
+        1024,
+        1536
+      ]
+    },
+    "res://STS2-Dehya/images/characters/dehya_skill.png": {
+      "size": [
+        1024,
+        1536
+      ]
+    },
+    "res://STS2-Dehya/images/characters/dehya_hit.png": {
+      "size": [
+        1024,
+        1536
+      ]
+    },
+    "res://STS2-Dehya/images/characters/dehya_down.png": {
+      "size": [
+        1536,
+        1024
+      ]
+    },
+    "res://STS2-Dehya/images/characters/dehya_merchant.png": {
+      "size": [
+        1024,
+        1536
+      ]
+    },
+    "res://STS2-Dehya/images/characters/dehya_rest_site.png": {
+      "size": [
+        1024,
+        1536
+      ]
+    },
+    "res://STS2-Dehya/images/characters/dehya_char_select_bg.png": {
+      "size": [
+        1672,
+        941
+      ]
     }
   },
   "files": []
