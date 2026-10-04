@@ -17,6 +17,8 @@ namespace DehyaMod.Content.Cards;
 /// 升级:费用 2→1。逻辑在 <see cref="BladeBrilliancePower"/>,治疗量 = 能力份数。
 /// </summary>
 [RegisterCard(typeof(DehyaCardPool))]
+// 达弗·尘封魔典给予:原版 SetupForPlayer 从角色卡池 Ancient 卡中随机选(排除牙齿转化卡后本池唯一)
+// 且入卡组时自动升级(原版 DustyTome.AfterObtained CardCmd.Upgrade)——本卡升级=费用 2→1,已适配。
 public sealed class BladeBrilliance : DehyaCardBase
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => new DynamicVar[]

@@ -14,7 +14,7 @@ namespace DehyaMod.Content.Relics;
 /// 欧洛巴斯之触经由 Refinement 特性将其替换为炽热燃烧的臂铠(Navia 的 RosulaEmblem 范式)。
 /// </summary>
 [RegisterRelic(typeof(DehyaRelicPool))]
-[RegisterTouchOfOrobasRefinement(typeof(BlazingBracers))] // 不接该特性会被原版兜底换成圆环饰
+[RegisterTouchOfOrobasRefinement(typeof(BlazingBracers))] // 欧洛巴斯之触替换(2026-10-04 核验:原版 RefinementUpgrades=BlackBlood 等进阶对,目标稀有度 Starter 不入掉落;不接会被兜底换成圆环饰)
 public sealed class StillWarmBracers : DehyaRelicBase
 {
     public override RelicRarity Rarity => RelicRarity.Starter;

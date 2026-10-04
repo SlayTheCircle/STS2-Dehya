@@ -19,7 +19,7 @@ namespace DehyaMod.Content.Cards;
 /// 熔铁之拳(初始卡):造成3点伤害,给予1层易伤。升级:伤害5,易伤2层。
 /// </summary>
 [RegisterCard(typeof(DehyaCardPool))]
-[RegisterArchaicToothTranscendence(typeof(FuriousRush))] // Mirror 裁定 D3:欧洛巴斯之牙把初始卡转成先古强化版(Navia VolleyFire 范式)
+[RegisterArchaicToothTranscendence(typeof(FuriousRush))] // 欧洛巴斯之牙:熔铁之拳→怒势疾迅(Mirror 裁定 D3;Charlotte Kacha→Smile 同型,2026-10-04 核验:RitsuLib 补丁走原版 GetTranscendence* 路径,转化保升级与附魔)
 public sealed class MoltenIronFist : DehyaCardBase
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => new DynamicVar[]

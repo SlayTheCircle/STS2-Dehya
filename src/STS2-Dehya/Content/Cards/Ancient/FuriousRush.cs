@@ -18,6 +18,8 @@ namespace DehyaMod.Content.Cards;
 /// 升级:伤害9,易伤5层。先古稀有度入 Ancient 目录(空 Ancient 池会崩达弗/DustyTome)。
 /// </summary>
 [RegisterCard(typeof(DehyaCardPool))]
+// 先古卡须进池(Charlotte 先例):接牙后由 RitsuLib TranscendenceCardsPatch 自动从尘封魔典候选剔除,
+// 不与铓辉灿漫(魔典卡)互抢;怒势疾迅的给予途径=古老牙齿转化,别处不应再发放。
 public sealed class FuriousRush : DehyaCardBase
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => new DynamicVar[]
