@@ -187,6 +187,18 @@
         128,
         128
       ]
+    },
+    "res://STS2-Dehya/images/energy/dehya_energy_big.png": {
+      "size": [
+        256,
+        256
+      ]
+    },
+    "res://STS2-Dehya/images/energy/dehya_energy_text.png": {
+      "size": [
+        24,
+        24
+      ]
     }
   },
   "files": []

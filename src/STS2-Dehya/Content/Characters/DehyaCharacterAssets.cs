@@ -5,7 +5,7 @@ namespace DehyaMod.Content.Characters;
 
 /// <summary>
 /// 角色资产档案(多形态立绘轮 2026-10-05,Charlotte 无 Spine 路线):战斗形象/商店/休息点/选人背景/
-/// 图标/卡牌拖尾均为自建场景;能量计暂借铁甲(能量球母版交付后替换,生图工作单 v2 ③)。
+/// 图标/卡牌拖尾/能量计均为自建场景——角色表现层至此全自有。
 /// 战斗姿势切换由 DehyaPosePatch 接管(站/剑斩/挥拳/技能/受击五态,裁定 E8/J4)。
 /// </summary>
 internal static class DehyaCharacterAssets
@@ -16,7 +16,7 @@ internal static class DehyaCharacterAssets
         CharacterAssetProfile profile = new CharacterAssetProfile(
             new CharacterSceneAssetSet(
                 "res://STS2-Dehya/scenes/characters/dehya_character.tscn",
-                fallback.Scenes!.EnergyCounterPath,
+                "res://STS2-Dehya/scenes/combat/dehya_energy_counter.tscn",
                 "res://STS2-Dehya/scenes/characters/dehya_merchant.tscn",
                 "res://STS2-Dehya/scenes/characters/dehya_rest_site.tscn"),
             new CharacterUiAssetSet(
