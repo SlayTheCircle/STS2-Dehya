@@ -134,3 +134,10 @@ if channel_release:
 else:
     print('未上传,素材授权与正式发布范围待确认。')
 PYCODE
+
+# 中间态清理:两次目标构建共用 build.sh 的平铺输出目录 mods-dist/$MOD_ID/,
+# 流程结束时其尾态恒为最后一个目标的产物——中性目录名装着特定目标的 DLL,
+# 是「拿错产物」陷阱(2026-10-06 实证:压测环境从该目录装配,0.107.1 DLL 落进
+# 0.111.0 运行时,攻击管线 MissingMethodException)。打包流程的产物以
+# variants/<目标>/ 与三份 ZIP 为准;单目标场景的平铺输出由 build.sh 自行生成,不受影响。
+rm -rf "$MOD_ROOT/mods-dist/$MOD_ID"
