@@ -8,17 +8,17 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.Saves.Runs;
 using STS2RitsuLib.Interop.AutoRegistration;
 using DehyaMod.Content.CardPools;
-using DehyaMod.Content.Patches;
 using DehyaMod.Content.Powers;
 
 namespace DehyaMod.Content.Cards;
 
 /// <summary>
 /// 加码加价(稀有技能,1费,保留+消耗):消耗抽牌堆中3张随机牌,获得3点力量;
-/// 本场战斗的奖励金币清零(隐藏标记 NoVictoryGoldPower + NoVictoryGoldPatch 按房间拦截,仅本场)。
-/// 升级:力量3→5(消耗张数不变)。
+/// 本场战斗的奖励金币清零(隐藏标记 NoVictoryGoldPower 战内在场 + 主卡组 SavedProperty 旗标
+/// 持久拦截,读档重生成奖励不失效,仅本场)。
 /// </summary>
 [RegisterCard(typeof(DehyaCardPool))]
 public sealed class RaisedStakes : DehyaCardBase
@@ -36,6 +36,22 @@ public sealed class RaisedStakes : DehyaCardBase
     {
     }
 
+    private bool _victoryGoldSuppressed;
+
+    /// <summary>本场战斗奖励金币清零的持久标记:写主卡组实例随存档,战斗奖励界面读档重开
+    /// (SaveAndQuit→Continue 重生成奖励)也能保住惩罚;下场战斗 SetUpCombat 复位
+    /// (NoVictoryGoldPatch/NoVictoryGoldResetPatch,2026-10-06 审查修正)。</summary>
+    [SavedProperty]
+    public bool VictoryGoldSuppressed
+    {
+        get => _victoryGoldSuppressed;
+        set
+        {
+            AssertMutable();
+            _victoryGoldSuppressed = value;
+        }
+    }
+
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         // Mirror 裁定 B17(2026-10-04):消耗抽牌堆「顶部」{Cards} 张(索引0为顶,MoveToTopInternal Insert(0) 实证),非随机。
@@ -48,7 +64,8 @@ public sealed class RaisedStakes : DehyaCardBase
         }
         await PowerCmd.Apply<StrengthPower>(choiceContext, base.Owner.Creature, base.DynamicVars.Strength.BaseValue, base.Owner.Creature, this);
         await PowerCmd.Apply<NoVictoryGoldPower>(choiceContext, base.Owner.Creature, 1m, base.Owner.Creature, this);
-        NoVictoryGoldTracker.Mark(base.Owner, base.RunState?.CurrentRoom);
+        // OnPlay 中的 this 是战斗克隆,标记必须写到主卡组实例(DeckVersion,TheScythe 双写范式)。
+        (base.DeckVersion as RaisedStakes ?? this).VictoryGoldSuppressed = true;
     }
 
     protected override void OnUpgrade()

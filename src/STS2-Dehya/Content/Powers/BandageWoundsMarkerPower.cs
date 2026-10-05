@@ -59,4 +59,16 @@ public sealed class BandageWoundsMarkerPower : DehyaPowerBase
         }
         _passedOneTurnEnd = true;
     }
+
+    /// <summary>重复施放叠层时窗口闩锁复原:Counter 型叠层复用同一实例(PowerCmd.ModifyAmount
+    /// 不走新实例路径),若第一份窗口已跨过一次己方回合结束,第二张卡的窗口会被残留闩锁截短,
+    /// 此处把窗口起点重新拉回当前回合(2026-10-06 审查修正)。</summary>
+    public override Task AfterPowerAmountChanged(PlayerChoiceContext choiceContext, PowerModel power, decimal amount, Creature? applier, CardModel? cardSource)
+    {
+        if (power == this && !_resolved && amount > 0m)
+        {
+            _passedOneTurnEnd = false;
+        }
+        return Task.CompletedTask;
+    }
 }
