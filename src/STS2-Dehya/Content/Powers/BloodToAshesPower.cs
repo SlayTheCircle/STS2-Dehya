@@ -47,8 +47,20 @@ public sealed class BloodToAshesPower : DehyaPowerBase
         CardPile drawPile = PileType.Draw.GetPile(base.Owner.Player);
         if (!drawPile.IsEmpty)
         {
-            CardModel? selected = (await CardSelectCmd.FromCombatPile(
-                choiceContext, drawPile, base.Owner.Player, new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 1))).FirstOrDefault();
+            CardModel? selected;
+            if (choiceContext is ThrowingPlayerChoiceContext)
+            {
+                // F8 事故修复(2026-10-05 游戏内):灼热形态回合开始烧血会经 Damage 管线进入本钩子,
+                // 该时机的上下文是 ThrowingPlayerChoiceContext(哨兵类型,弹选牌 UI 即 NotImplementedException,
+                // 回合计程死亡、战斗卡死)。受限上下文退化为消耗抽牌堆顶、不弹窗——与 B18「有多少耗多少」
+                // 同精神;正常路径(出牌/受到攻击)仍为手选。
+                selected = drawPile.Cards.FirstOrDefault();
+            }
+            else
+            {
+                selected = (await CardSelectCmd.FromCombatPile(
+                    choiceContext, drawPile, base.Owner.Player, new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 1))).FirstOrDefault();
+            }
             if (selected != null)
             {
                 await CardCmd.Exhaust(choiceContext, selected);
