@@ -175,6 +175,18 @@
         1672,
         941
       ]
+    },
+    "res://STS2-Dehya/images/energy/dehya_spark.png": {
+      "size": [
+        64,
+        64
+      ]
+    },
+    "res://STS2-Dehya/images/energy/dehya_glow.png": {
+      "size": [
+        128,
+        128
+      ]
     }
   },
   "files": []
