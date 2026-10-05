@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
@@ -40,6 +42,18 @@ public sealed class BlazingLionBloodPower : DehyaPowerBase
             return;
         }
         await Sync(new ThrowingPlayerChoiceContext());
+    }
+
+    /// <summary>回合开始兜底重算:战斗内最大生命损失在「当前生命 ≤ 新上限」的路径下只走 SetMaxHp、
+    /// 不触发任何 HP 变化钩子(CreatureCmd.LoseMaxHp 实证;Damage 分支的 SetMaxHp 也在钩子之后),
+    /// 缺失生命变化而力量不跟随会虚高滞留,此处幂等补一次同步(2026-10-06 审查修正)。</summary>
+    public override Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+    {
+        if (!participants.Contains(base.Owner))
+        {
+            return Task.CompletedTask;
+        }
+        return Sync(new ThrowingPlayerChoiceContext());
     }
 
     private async Task Sync(PlayerChoiceContext choiceContext)

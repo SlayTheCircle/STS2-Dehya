@@ -43,7 +43,10 @@ public sealed class ScorchingEmbers : DehyaCardBase
         if (discarded != null)
         {
             await CardCmd.Discard(choiceContext, discarded);
-            if (discarded.EnergyCost.GetResolved() != 0)
+            // 「0费牌」口径同原版 AllForOne/Scrape:GetWithModifiers 未钳位(-1 费诅咒/状态不被钳成 0),
+            // 且排除 X 费;GetResolved 会把不可打出牌的 -1 钳为 0,导致弃诅咒不触发抽牌(2026-10-06 审查修正)。
+            bool discardedIsZeroCost = discarded.EnergyCost.GetWithModifiers(CostModifiers.All) == 0 && !discarded.EnergyCost.CostsX;
+            if (!discardedIsZeroCost)
             {
                 await CardPileCmd.Draw(choiceContext, base.DynamicVars.Cards.BaseValue, base.Owner);
             }

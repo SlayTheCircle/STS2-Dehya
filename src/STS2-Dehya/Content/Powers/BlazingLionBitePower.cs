@@ -20,6 +20,8 @@ namespace DehyaMod.Content.Powers;
 /// 回合结束时(结算敌方伤害的 BeforeSideTurnEnd 时点)先移除全部已追踪力量,
 /// 再对所有敌人造成等量伤害,随后清零追踪(力量层数不落 0,能力全程存续)。
 /// 多张炎啸狮咬各建独立实例、各自结算(引擎 Instanced 语义,参照原版 TheBomb)。
+/// 0 费口径排除 X 费牌(2026-10-06 裁定:X=0 白打出不算 0 费;原版 OneForAll 与本仓
+/// 调整呼吸/燎原野火等四卡同口径,防止整装待发每回合白嫖力量)。
 /// </summary>
 [RegisterPower]
 public sealed class BlazingLionBitePower : DehyaPowerBase
@@ -37,7 +39,9 @@ public sealed class BlazingLionBitePower : DehyaPowerBase
 
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner.Creature != base.Owner || cardPlay.Card.EnergyCost.GetResolved() != 0)
+        if (cardPlay.Card.Owner.Creature != base.Owner
+            || cardPlay.Card.EnergyCost.CostsX
+            || cardPlay.Card.EnergyCost.GetResolved() != 0)
         {
             return;
         }

@@ -25,7 +25,9 @@ public sealed class DawnbreakMarkPower : DehyaPowerBase
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         // Mirror 裁定 B9(2026-10-04):仅「以该敌人为目标的 0 费攻击牌」触发;无目标的0费牌不算。
+        // 0 费口径排除 X 费(2026-10-06 裁定,X=0 不算 0 费;与炎啸狮咬/燃烧心火统一)。
         if (cardPlay.Card.Owner.Creature == base.Owner
+            || cardPlay.Card.EnergyCost.CostsX
             || cardPlay.Card.EnergyCost.GetResolved() != 0
             || cardPlay.Card.Type != CardType.Attack
             || cardPlay.Target != base.Owner)

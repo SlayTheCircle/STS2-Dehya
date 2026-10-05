@@ -15,7 +15,7 @@ namespace DehyaMod.Content.Cards;
 /// <summary>
 /// 锤砺锋芒(稀有攻击):造成 2 点伤害;本局游戏中你每打出一张费用不低于 2 的牌,
 /// 这张卡的伤害永久 +2(增量走 SavedProperty,由 Content/Patches/TemperedEdgeTrackingPatch
-/// 对主卡组中所有实例加成)。升级:每张 +2→+3。
+/// 对主卡组与战斗克隆双写,本场即时生效)。升级:每张 +2→+3。
 /// </summary>
 [RegisterCard(typeof(DehyaCardPool))]
 public sealed class TemperedEdge : DehyaCardBase
