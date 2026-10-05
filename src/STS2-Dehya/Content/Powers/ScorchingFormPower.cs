@@ -37,14 +37,19 @@ public sealed class ScorchingFormPower : DehyaPowerBase
         DynamicVars["AoeDamage"].BaseValue = aoeDamage;
     }
 
-    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+    /// <summary>
+    /// 挂在 BeforeSideTurnStart 而非 AfterSideTurnStart:F8 事故(2026-10-05 游戏内)——后者无上下文,
+    /// 自造 ThrowingPlayerChoiceContext 传入 Damage 管线会让燃血成灰的选牌 UI 抛 NotImplementedException、
+    /// 回合计程死亡;Before 侧引擎原生构造 HookPlayerChoiceContext(原版 ForegoneConclusion 同族),
+    /// 下游玩家选择经游戏动作队列合法同步。
+    /// </summary>
+    public override async Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
     {
         if (!participants.Contains(base.Owner) || base.Owner.IsDead)
         {
             return;
         }
         Flash();
-        PlayerChoiceContext choiceContext = new ThrowingPlayerChoiceContext();
         await CreatureCmd.Damage(choiceContext, base.Owner, 1m, ValueProp.Unblockable | ValueProp.Unpowered, null, null);
         await PowerCmd.Apply<ThornsPower>(choiceContext, base.Owner, 1m, base.Owner, null);
         await CreatureCmd.Damage(choiceContext, combatState.HittableEnemies, DynamicVars["AoeDamage"].BaseValue, ValueProp.Unpowered, base.Owner);

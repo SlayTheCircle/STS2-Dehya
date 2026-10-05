@@ -1,8 +1,6 @@
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.CardSelection;
-using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -15,52 +13,43 @@ using STS2RitsuLib.Interop.AutoRegistration;
 namespace DehyaMod.Content.Powers;
 
 /// <summary>
-/// 燃血成灰效果:己方回合内你每回合首次失去生命时,从抽牌堆选择 1 张牌消耗,
+/// 燃血成灰效果:己方回合内你每回合首次失去生命时,从抽牌堆**手动选择** 1 张牌消耗,
 /// 并恢复 Amount 生命(抽牌堆为空时只回血)。观察口径同 Rupture(仅己方回合)。
+/// 「每回合首次」用回合计数戳判定,不依赖 BeforeSideTurnStart 重置钩子的模型遍历顺序。
 /// </summary>
 [RegisterPower]
 public sealed class BloodToAshesPower : DehyaPowerBase
 {
-    private bool _triggeredThisTurn;
+    private int _lastTriggeredTurn = -1;
 
     public override PowerType Type => PowerType.Buff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override Task BeforeSideTurnStart(PlayerChoiceContext choiceContext, CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
-    {
-        if (participants.Contains(base.Owner))
-        {
-            _triggeredThisTurn = false;
-        }
-        return Task.CompletedTask;
-    }
-
     public override async Task AfterDamageReceived(PlayerChoiceContext choiceContext, Creature target, DamageResult result, ValueProp props, Creature? dealer, CardModel? cardSource)
     {
-        if (target != base.Owner || _triggeredThisTurn || result.UnblockedDamage <= 0 || base.CombatState.CurrentSide != base.Owner.Side)
+        if (target != base.Owner || result.UnblockedDamage <= 0 || base.CombatState.CurrentSide != base.Owner.Side)
         {
             return;
         }
-        _triggeredThisTurn = true;
+        if (choiceContext is ThrowingPlayerChoiceContext)
+        {
+            // 防御(F8 事故 2026-10-05:受限上下文弹选牌 UI 抛 NotImplementedException 杀死回合计程;
+            // 根因已在触发源修复——灼热形态改挂 BeforeSideTurnStart 传引擎的 HookPlayerChoiceContext)。
+            // 若仍有受限路径抵达此处,整次跳过——绝不退化为随机烧牌(维护者裁定:不可控烧牌=负面效果)。
+            return;
+        }
+        if (base.Owner.Player.PlayerCombatState.TurnNumber == _lastTriggeredTurn)
+        {
+            return;
+        }
+        _lastTriggeredTurn = base.Owner.Player.PlayerCombatState.TurnNumber;
         Flash();
         CardPile drawPile = PileType.Draw.GetPile(base.Owner.Player);
         if (!drawPile.IsEmpty)
         {
-            CardModel? selected;
-            if (choiceContext is ThrowingPlayerChoiceContext)
-            {
-                // F8 事故修复(2026-10-05 游戏内):灼热形态回合开始烧血会经 Damage 管线进入本钩子,
-                // 该时机的上下文是 ThrowingPlayerChoiceContext(哨兵类型,弹选牌 UI 即 NotImplementedException,
-                // 回合计程死亡、战斗卡死)。受限上下文退化为消耗抽牌堆顶、不弹窗——与 B18「有多少耗多少」
-                // 同精神;正常路径(出牌/受到攻击)仍为手选。
-                selected = drawPile.Cards.FirstOrDefault();
-            }
-            else
-            {
-                selected = (await CardSelectCmd.FromCombatPile(
-                    choiceContext, drawPile, base.Owner.Player, new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 1))).FirstOrDefault();
-            }
+            CardModel? selected = (await CardSelectCmd.FromCombatPile(
+                choiceContext, drawPile, base.Owner.Player, new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 1))).FirstOrDefault();
             if (selected != null)
             {
                 await CardCmd.Exhaust(choiceContext, selected);
