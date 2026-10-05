@@ -15,7 +15,7 @@ namespace DehyaMod.Content.Cards;
 
 /// <summary>
 /// 烈狮怒瞳(普通技能,0费):每有一名敌人持有攻击意图,获得4点格挡并抽1张牌(裁定:随敌数叠);
-/// 若没有敌人持有攻击意图,改为获得3层再生,且此牌打出后消耗(ExhaustOnNextPlay,非常驻关键词)。
+/// 若没有敌人持有攻击意图,改为获得3层再生,且此牌打出后消耗(OnPlay 内直接 CardCmd.Exhaust,非常驻关键词)。
 /// 升级:每次格挡4→5点,再生3→4层。
 /// </summary>
 [RegisterCard(typeof(DehyaCardPool))]
@@ -45,7 +45,9 @@ public sealed class LionGlare : DehyaCardBase
         else
         {
             await PowerCmd.Apply<RegenPower>(choiceContext, base.Owner.Creature, base.DynamicVars["RegenPower"].BaseValue, base.Owner.Creature, this);
-            ExhaustOnNextPlay = true;
+            // 消耗须在 OnPlay 内直接执行:引擎 OnPlayWrapper 在调 OnPlay 之前就缓存了结果牌堆,
+            // 此处置 ExhaustOnNextPlay 对本次打出已无效(标志读取点已过),卡会落回弃牌堆(2026-10-06 审查修正)。
+            await CardCmd.Exhaust(choiceContext, this);
         }
     }
 

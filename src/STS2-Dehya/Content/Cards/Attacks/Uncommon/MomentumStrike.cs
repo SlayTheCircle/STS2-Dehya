@@ -14,14 +14,11 @@ namespace DehyaMod.Content.Cards;
 /// <summary>
 /// 蓄势打击(罕见攻击):造成 10 点伤害并抽 1 张牌。每次打出后,这张牌本场战斗中费用 +1、抽牌数 +1。
 /// 升级:抽牌数 1→2(伤害按规格裁定保持 10 不变)。
-/// 战斗内成长用标量字段承载:MemberwiseClone 自动复制标量(state.md 标量克隆规则),
-/// 引擎另自行克隆 DynamicVars/费用修饰,故不覆写 DeepCloneFields。
+/// 引擎自行克隆 DynamicVars/费用修饰(MemberwiseClone),同一战斗内实例稳定,故不覆写 DeepCloneFields。
 /// </summary>
 [RegisterCard(typeof(DehyaCardPool))]
 public sealed class MomentumStrike : DehyaCardBase
 {
-    private int _plays;
-
     protected override IEnumerable<DynamicVar> CanonicalVars => new DynamicVar[]
     {
         new DamageVar(10m, ValueProp.Move),
@@ -42,10 +39,10 @@ public sealed class MomentumStrike : DehyaCardBase
             .Execute(choiceContext);
         await CardPileCmd.Draw(choiceContext, draws, base.Owner);
 
-        // 战斗内自我成长:费 +1(EndOfCombat 本地费用修饰,随克隆)、抽牌数 +1(由字段推导同步到卡面)。
-        _plays++;
+        // 战斗内自我成长:费 +1(EndOfCombat 本地费用修饰,随克隆)、抽牌数 +1(基于本次打出时的
+        // 面板值线性加 1;写成 累计次数 会把历史增量重复计入,1,2,4,7… 复利膨胀,2026-10-06 审查修正)。
         base.EnergyCost.AddThisCombat(1);
-        base.DynamicVars.Cards.BaseValue = draws + _plays;
+        base.DynamicVars.Cards.BaseValue = draws + 1;
     }
 
     protected override void OnUpgrade()
