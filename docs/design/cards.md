@@ -97,7 +97,7 @@
 | 卡牌 | 稀有度 | 费用 | 类型 | 效果 |
 |---|---|---|---|---|
 | 血之誓约 | 罕见 | 1 | 能力 | 每回合开始时，若你的生命值不高于50%，抽{BloodOathPower:diff()}张牌并获得{BloodOathPower:diff()}点能量。 |
-| 燃血成灰 | 罕见 | 2 | 能力 | 每回合你第一次失去生命时，从抽牌堆选择1张牌消耗，并恢复{BloodToAshesPower:diff()}生命。 |
+| 燃血成灰 | 罕见 | 2 | 能力 | 每回合你第一次失去生命时，可以从抽牌堆选择1张牌消耗，并恢复{BloodToAshesPower:diff()}生命。 |
 | 染血纷争 | 罕见 | 2 | 能力 | 你每打出一张费用2或以上的牌，恢复等同于其费用的生命。 |
 | 烈狮血性 | 罕见 | 3 | 能力 | 每回合你打出的第一张费用大于等于3的牌：你获得{FierceLionSpiritPower:diff()}层[gold]易伤[/gold]，并获得{FierceLionSpiritPower:diff()}点能量。 |
 | 铜墙铁壁 | 罕见 | 3 | 能力 | 获得{PlatingPower:diff()}层[gold]覆甲[/gold]。 |

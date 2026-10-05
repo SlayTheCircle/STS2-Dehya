@@ -37,7 +37,7 @@
   "STS2_DEHYA_CARD_BLOODSTAINED_STRIFE.title": "Bloodstained Strife",
   "STS2_DEHYA_CARD_BLOOD_OATH.description": "At the start of each turn, if your HP is at or below 50%, draw {BloodOathPower:diff()} cards and gain {BloodOathPower:diff()} energy.",
   "STS2_DEHYA_CARD_BLOOD_OATH.title": "Blood Oath",
-  "STS2_DEHYA_CARD_BLOOD_TO_ASHES.description": "The first time you lose HP each turn, Exhaust 1 card of your choice from your draw pile and recover {BloodToAshesPower:diff()} HP.",
+  "STS2_DEHYA_CARD_BLOOD_TO_ASHES.description": "The first time you lose HP each turn, you may Exhaust 1 card of your choice from your draw pile and recover {BloodToAshesPower:diff()} HP.",
   "STS2_DEHYA_CARD_BLOOD_TO_ASHES.title": "Blood to Ashes",
   "STS2_DEHYA_CARD_BOILING_BLOOD.description": "Draw {Cards:diff()} cards, then lose {HpLoss:diff()} HP. If your HP is above 50%, draw 2 more cards.",
   "STS2_DEHYA_CARD_BOILING_BLOOD.title": "Boiling Blood",

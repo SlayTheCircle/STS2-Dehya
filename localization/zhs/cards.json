@@ -37,7 +37,7 @@
   "STS2_DEHYA_CARD_BLOODSTAINED_STRIFE.title": "染血纷争",
   "STS2_DEHYA_CARD_BLOOD_OATH.description": "每回合开始时，若你的生命值不高于50%，抽{BloodOathPower:diff()}张牌并获得{BloodOathPower:diff()}点能量。",
   "STS2_DEHYA_CARD_BLOOD_OATH.title": "血之誓约",
-  "STS2_DEHYA_CARD_BLOOD_TO_ASHES.description": "每回合你第一次失去生命时，从抽牌堆选择1张牌消耗，并恢复{BloodToAshesPower:diff()}生命。",
+  "STS2_DEHYA_CARD_BLOOD_TO_ASHES.description": "每回合你第一次失去生命时，可以从抽牌堆选择1张牌消耗，并恢复{BloodToAshesPower:diff()}生命。",
   "STS2_DEHYA_CARD_BLOOD_TO_ASHES.title": "燃血成灰",
   "STS2_DEHYA_CARD_BOILING_BLOOD.description": "抽{Cards:diff()}张牌，失去{HpLoss:diff()}生命。若你的生命值高于50%，再抽2张牌。",
   "STS2_DEHYA_CARD_BOILING_BLOOD.title": "热血沸腾",
