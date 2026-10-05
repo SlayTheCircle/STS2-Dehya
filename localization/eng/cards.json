@@ -155,7 +155,7 @@
   "STS2_DEHYA_CARD_SCORCHING_EMBERS.title": "Scorching Embers",
   "STS2_DEHYA_CARD_SCORCHING_FORM.description": "Gain {PlatingPower:diff()} [gold]Plating[/gold]. At the start of each turn: lose 1 HP, gain 1 [gold]Thorns[/gold], and deal {AoeDamage:diff()} damage to ALL enemies.",
   "STS2_DEHYA_CARD_SCORCHING_FORM.title": "Scorching Form",
-  "STS2_DEHYA_CARD_SCORCHING_NIGHTVEIL.description": "Whenever you lose HP during a turn, gain {ScorchingNightveilPower:diff()} [gold]Thorns[/gold].",
+  "STS2_DEHYA_CARD_SCORCHING_NIGHTVEIL.description": "Whenever you lose HP during your turn, gain {ScorchingNightveilPower:diff()} [gold]Thorns[/gold].",
   "STS2_DEHYA_CARD_SCORCHING_NIGHTVEIL.title": "Scorching Nightveil",
   "STS2_DEHYA_CARD_SEARING_BLOOD.description": "Lose {HpLoss:diff()} HP. Gain {StrengthPower:diff()} Strength and {DexterityPower:diff()} Dexterity this turn.",
   "STS2_DEHYA_CARD_SEARING_BLOOD.title": "Searing Blood",

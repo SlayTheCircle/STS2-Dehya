@@ -13,7 +13,7 @@ using DehyaMod.Content.Powers;
 namespace DehyaMod.Content.Cards;
 
 /// <summary>
-/// 焰灼夜幕(稀有,1费能力):回合内你每次失去生命,获得1点荆棘。
+/// 焰灼夜幕(稀有,1费能力):每当你在自己的回合中失去一次生命,获得1点荆棘(整场常驻,仅己方回合触发)。
 /// 升级:获得固有。
 /// </summary>
 [RegisterCard(typeof(DehyaCardPool))]

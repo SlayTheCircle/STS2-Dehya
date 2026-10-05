@@ -155,7 +155,7 @@
   "STS2_DEHYA_CARD_SCORCHING_EMBERS.title": "炽热余烬",
   "STS2_DEHYA_CARD_SCORCHING_FORM.description": "获得{PlatingPower:diff()}层[gold]覆甲[/gold]。每回合开始时：失去1点生命，获得1层[gold]荆棘[/gold]，对所有敌人造成{AoeDamage:diff()}点伤害。",
   "STS2_DEHYA_CARD_SCORCHING_FORM.title": "灼热形态",
-  "STS2_DEHYA_CARD_SCORCHING_NIGHTVEIL.description": "回合内你每失去一次生命，获得{ScorchingNightveilPower:diff()}点[gold]荆棘[/gold]。",
+  "STS2_DEHYA_CARD_SCORCHING_NIGHTVEIL.description": "每当你在自己的回合中失去一次生命，获得{ScorchingNightveilPower:diff()}点[gold]荆棘[/gold]。",
   "STS2_DEHYA_CARD_SCORCHING_NIGHTVEIL.title": "焰灼夜幕",
   "STS2_DEHYA_CARD_SEARING_BLOOD.description": "失去{HpLoss:diff()}生命。本回合获得{StrengthPower:diff()}点力量和{DexterityPower:diff()}点敏捷。",
   "STS2_DEHYA_CARD_SEARING_BLOOD.title": "灼热之血",

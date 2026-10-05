@@ -115,7 +115,7 @@
 | 雇佣关系 | 稀有 | 1 | 能力 | 获得{Gold:diff()}金币。回合开始时，每持有100金币，消耗3金币并获得1点能量；每击败一名敌人，战斗胜利后获得{MercenaryContractPower:diff()}金币。 |
 | 极速突击 | 稀有 | 2 | 能力 | 每当你打出1张费用为0的卡牌时，获得{RapidOnslaughtPower:diff()}点[gold]活力[/gold]。 |
 | 灼热形态 | 稀有 | 3 | 能力 | 获得{PlatingPower:diff()}层[gold]覆甲[/gold]。每回合开始时：失去1点生命，获得1层[gold]荆棘[/gold]，对所有敌人造成{AoeDamage:diff()}点伤害。 |
-| 焰灼夜幕 | 稀有 | 1 | 能力 | 回合内你每失去一次生命，获得{ScorchingNightveilPower:diff()}点[gold]荆棘[/gold]。 |
+| 焰灼夜幕 | 稀有 | 1 | 能力 | 每当你在自己的回合中失去一次生命，获得{ScorchingNightveilPower:diff()}点[gold]荆棘[/gold]。 |
 
 ## 先古强化（2）
 
