@@ -69,7 +69,9 @@ public sealed class BountyContract : DehyaCardBase
         {
             return;
         }
-        // 入手即计:首个战斗结束钩子时计到2(获得卡的战斗=1),此后每场+1;计满自删
+        // 入手即计:首个战斗结束钩子时计到2(获得卡的战斗=1),此后每场+1;计满自删。
+        // 非战斗入手(商店/事件/药水)同样按「入手当回合=第1场槽位」计——任何来源入手后都恰好
+        // 经历 4 场真实战斗自删,统一口径(2026-10-06 审查确认,无 off-by-one)。
         BattlesCounted = BattlesCounted == 0 ? 2 : BattlesCounted + 1;
         if (BattlesCounted >= BattlesBeforeSelfRemoval)
         {

@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using STS2RitsuLib.Interop.AutoRegistration;
@@ -23,6 +24,12 @@ namespace DehyaMod.Content.Relics;
 public sealed class ToyWoodenSword : DehyaRelicBase
 {
     public override RelicRarity Rarity => RelicRarity.Uncommon;
+
+    /// <summary>描述中的「格挡」挂悬停词条(原版 CaptainsWheel 同款,2026-10-06 审查补)。</summary>
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => new IHoverTip[]
+    {
+        HoverTipFactory.Static(StaticHoverTip.Block),
+    };
 
     protected override IEnumerable<DynamicVar> CanonicalVars => new DynamicVar[] { new DamageVar(5m, ValueProp.Unpowered) };
 

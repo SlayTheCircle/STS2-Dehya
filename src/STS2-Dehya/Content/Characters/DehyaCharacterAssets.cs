@@ -40,6 +40,10 @@ internal static class DehyaCharacterAssets
                 "res://STS2-Dehya/images/hands/dehya_hand_paper.png",
                 "res://STS2-Dehya/images/hands/dehya_hand_scissors.png"));
         string entry = ModContentRegistry.GetCompoundId(ModEntry.ModId, "character", nameof(Dehya)).ToLowerInvariant();
+        // 借用铁甲的未自建槽位(全套音效/视觉线索等):Spine/Audio 留空会让引擎按条目名推导
+        // mod 侧不存在的 FMOD 事件,战斗/死亡/选人全程无声(2026-10-06 审查修正;FillMissingFrom
+        // 只补空槽,上文自建的场景/UI/VFX/手势不受影响,待自有配音接入后用 WithAudio 显式替换)。
+        profile = CharacterAssetProfiles.FillMissingFrom(profile, fallback);
         ModContentRegistry.For(ModEntry.ModId).RegisterCharacterAssetReplacement(entry, profile);
     }
 }

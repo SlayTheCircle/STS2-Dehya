@@ -13,6 +13,8 @@ namespace DehyaMod.Content.Cards;
 /// <summary>
 /// 预支定金(普通技能,0费,虚无):消耗20金币,抽2张牌。金币不足20时不可打出
 /// (裁定口径:IsPlayable 按 Gold 门槛拦截,原版 Clash 式条件不可用)。
+/// 已知并接受的引擎口径(2026-10-06 裁定):自动打出路径(混乱/Havoc 等)不检查 IsPlayable,
+/// 金币不足时被自动打出会扣款钳 0 照常结算——原版 Clash/GrandFinale 同款行为,不修。
 /// 升级:抽牌2→3张。
 /// </summary>
 [RegisterCard(typeof(DehyaCardPool))]

@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models.Powers;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
@@ -18,6 +20,13 @@ namespace DehyaMod.Content.Relics;
 public sealed class BlazingBracers : DehyaRelicBase
 {
     public override RelicRarity Rarity => RelicRarity.Starter; // 进阶初始遗物不入掉落池
+
+    /// <summary>描述中的机制名词挂悬停词条(非卡牌模型无关键词管线,须显式挂;原版 Akabeko/Gorget 范式)。</summary>
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => new IHoverTip[]
+    {
+        HoverTipFactory.FromPower<PlatingPower>(),
+        HoverTipFactory.FromPower<RegenPower>(),
+    };
 
     public override async Task BeforeCombatStart()
     {

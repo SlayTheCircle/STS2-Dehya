@@ -212,14 +212,17 @@ internal static class DehyaPosePatch
         return sprite.Scale.X < 0f ? -1f : 1f;
     }
 
-    /// <summary>双攻击形态:E8 裁定 剑斩=≥1费 / 挥拳=0费;取本回合最后打出的己方卡的当前结算费用。</summary>
+    /// <summary>双攻击形态:E8 裁定 剑斩=≥1费 / 挥拳=0费;取本回合最后打出的己方卡的当前结算费用。
+    /// 按本回合过滤(HappenedThisTurn,原版 RingingPower 同款):本回合尚未出牌时即为「无卡上下文」,
+    /// 默认剑斩——否则非出牌来源的攻击会错误回退命中早前回合的最后一张卡(2026-10-06 审查修正)。</summary>
     private static Texture2D? ResolveAttackPose(Player player)
     {
         if (CombatManager.Instance is { IsInProgress: true } combat)
         {
             var started = combat.History.CardPlaysStarted;
             // 0.107.1 的 CardPlay 无 Player 属性,经 Card.Owner 判归属(两版通用)。
-            var card = started.LastOrDefault(e => e.CardPlay.Card.Owner == player)?.CardPlay.Card;
+            var card = started.LastOrDefault(e => e.CardPlay.Card.Owner == player
+                && e.HappenedThisTurn(player.Creature.CombatState))?.CardPlay.Card;
             if (card != null && card.EnergyCost.GetResolved() == 0)
             {
                 return Poses["AttackPunch"];

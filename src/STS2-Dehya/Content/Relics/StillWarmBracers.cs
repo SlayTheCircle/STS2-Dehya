@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Relics;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models.Powers;
 using STS2RitsuLib.Interop.AutoRegistration;
 using STS2RitsuLib.Scaffolding.Content;
@@ -19,10 +21,16 @@ public sealed class StillWarmBracers : DehyaRelicBase
 {
     public override RelicRarity Rarity => RelicRarity.Starter;
 
+    /// <summary>描述中的机制名词挂悬停词条(非卡牌模型无关键词管线,须显式挂;原版 Akabeko/Gorget 范式)。</summary>
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => new IHoverTip[]
+    {
+        HoverTipFactory.FromPower<PlatingPower>(),
+    };
+
     public override async Task BeforeCombatStart()
     {
         Flash();
         await PowerCmd.Apply<PlatingPower>(new ThrowingPlayerChoiceContext(), base.Owner.Creature, 5m, base.Owner.Creature, null);
-        CreatureCmd.Heal(base.Owner.Creature, 2);
+        await CreatureCmd.Heal(base.Owner.Creature, 2);
     }
 }

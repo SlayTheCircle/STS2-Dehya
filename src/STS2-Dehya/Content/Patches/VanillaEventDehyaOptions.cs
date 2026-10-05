@@ -133,7 +133,8 @@ internal static class VanillaEventDehyaOptions
         var potion = evt.Rng.NextItem(player.Potions.ToList());
         int upgrades = potion.Rarity == PotionRarity.Common ? 1 : 2;  // L4:罕见也算 2 张
         string potionName = potion.Rarity == PotionRarity.Common ? "common" : "rare";
-        potion.Discard();
+        // 走 PotionCmd.Discard(原版 TheFutureOfPotions 范式):补写 PotionDiscarded 统计与钩子派发。
+        await PotionCmd.Discard(potion);
         List<CardModel> upgradable = player.Deck.Cards.Where(static c => c.IsUpgradable).ToList();
         for (int i = 0; i < upgrades && upgradable.Count > 0; i++)
         {

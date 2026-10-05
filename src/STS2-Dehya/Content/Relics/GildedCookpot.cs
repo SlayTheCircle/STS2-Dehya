@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Rooms;
@@ -28,6 +29,12 @@ public sealed class GildedCookpot : DehyaRelicBase
     public override RelicRarity Rarity => RelicRarity.Uncommon;
 
     public override bool HasUponPickupEffect => true;
+
+    /// <summary>描述中的机制名词挂悬停词条(非卡牌模型无关键词管线,须显式挂;原版 BeltBuckle 范式)。</summary>
+    protected override IEnumerable<IHoverTip> AdditionalHoverTips => new IHoverTip[]
+    {
+        HoverTipFactory.FromPower<DexterityPower>(),
+    };
 
     protected override IEnumerable<DynamicVar> CanonicalVars => new DynamicVar[]
     {

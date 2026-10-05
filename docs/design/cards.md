@@ -78,9 +78,9 @@
 | 悬赏委托 | 罕见 | 2 | 技能 | 标记一名敌人。该敌人被击败时：获得1点能量，抽{Cards:diff()}张牌，并在战斗胜利后获得{BountyMarkPower:diff()}金币。 |
 | 剑斗技巧 | 罕见 | 3 | 技能 | 下回合获得 {DelayedTemporaryStrengthPower:diff()} 点临时力量。本回合内你每打出一张攻击牌，这张牌的耗能 -1（回合结束或打出后复原）。 |
 | 忘却极限 | 罕见 | 3 | 技能 | 抽牌直到手牌已满。本次抽到的每张非0费牌使你失去{HpLoss:diff()}点生命。 |
-| 搏命之灵 | 罕见 | 1 | 技能 | 失去{HpLoss:diff()}生命，获得{StrengthPower:diff()}点力量。若你的生命值低于50%，再获得{BonusStrength:diff()}点力量。 |
+| 搏命之灵 | 罕见 | 1 | 技能 | 失去{HpLoss:diff()}生命，获得{StrengthPower:diff()}点力量。若你的生命值不高于50%，再获得{BonusStrength:diff()}点力量。 |
 | 裂帛灼金 | 罕见 | 4 | 技能 | 获得{Block:diff()}点[gold]格挡[/gold]、{ThornsPower:diff()}点[gold]荆棘[/gold]和{PlatingPower:diff()}层[gold]覆甲[/gold]。 |
-| 血气方刚 | 罕见 | 0 | 技能 | 失去{HpLoss:diff()}生命，获得{Energy:energyIcons()}。若你的生命值低于50%，再获得{BonusEnergy:energyIcons()}。 |
+| 血气方刚 | 罕见 | 0 | 技能 | 失去{HpLoss:diff()}生命，获得{Energy:energyIcons()}。若你的生命值不高于50%，再获得{BonusEnergy:energyIcons()}。 |
 | 加固运输 | 罕见 | 1 | 技能 | 获得{CalculatedBlock:diff()}点[gold]格挡[/gold]。每持有100金币：消耗{GoldCost}金币，提供{CalculationExtra:diff()}点额外格挡。 |
 | 步步为营 | 罕见 | 1 | 技能 | 获得{PlatingPower:diff()}层[gold]覆甲[/gold]。若到下回合开始时你未因攻击失去生命，获得{SteadyEncampmentMarkerPower:diff()}层[gold]再生[/gold]。 |
 | 坚毅不倒 | 罕见 | 3 | 技能 | 获得{Block:diff()}点[gold]格挡[/gold]。在下个回合，获得{BlockNextTurnPower:diff()}点[gold]格挡[/gold]。 |
@@ -96,7 +96,7 @@
 
 | 卡牌 | 稀有度 | 费用 | 类型 | 效果 |
 |---|---|---|---|---|
-| 血之誓约 | 罕见 | 1 | 能力 | 每回合开始时，若你的生命值低于50%，抽{BloodOathPower:diff()}张牌并获得{BloodOathPower:diff()}点能量。 |
+| 血之誓约 | 罕见 | 1 | 能力 | 每回合开始时，若你的生命值不高于50%，抽{BloodOathPower:diff()}张牌并获得{BloodOathPower:diff()}点能量。 |
 | 燃血成灰 | 罕见 | 2 | 能力 | 每回合你第一次失去生命时，从抽牌堆选择1张牌消耗，并恢复{BloodToAshesPower:diff()}生命。 |
 | 染血纷争 | 罕见 | 2 | 能力 | 你每打出一张费用2或以上的牌，恢复等同于其费用的生命。 |
 | 烈狮血性 | 罕见 | 3 | 能力 | 每回合你打出的第一张费用大于等于3的牌：你获得{FierceLionSpiritPower:diff()}层[gold]易伤[/gold]，并获得{FierceLionSpiritPower:diff()}点能量。 |

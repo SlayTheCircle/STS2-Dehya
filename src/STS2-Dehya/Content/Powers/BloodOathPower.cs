@@ -13,7 +13,8 @@ namespace DehyaMod.Content.Powers;
 
 /// <summary>
 /// 血之誓约的搏命意志(可见增益):每回合开始时,若你的生命值低于 50%,抽牌并获得能量。
-/// 抽牌数与能量数 = 能力份数(Amount)。「低于 50%」按当前生命*2 严格小于最大生命判定。
+/// 抽牌数与能量数 = 能力份数(Amount)。「低于 50%」含恰好半血:当前生命*2 ≤ 最大生命即触发
+/// (Mirror 裁定 2026-10-04「50%算小」,与热血沸腾/生命赌注等同口径,≤ 含等号是有意行为)。
 /// </summary>
 [RegisterPower]
 public sealed class BloodOathPower : DehyaPowerBase

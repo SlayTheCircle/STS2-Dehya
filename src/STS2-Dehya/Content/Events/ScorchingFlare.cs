@@ -51,7 +51,9 @@ public sealed class ScorchingFlare : DehyaEventBase
     private async Task Extinguish()
     {
         var potion = base.Rng.NextItem(base.Owner.Potions.ToList());
-        potion.Discard();
+        // 走 PotionCmd.Discard(原版 RanwidTheElder/StoneOfAllTime 范式):补写 run history 的
+        // PotionDiscarded 统计并派发 AfterPotionDiscarded 钩子,直接模型入口会静默跳过两者。
+        await PotionCmd.Discard(potion);
         RelicModel relic = RelicFactory.PullNextRelicFromFront(base.Owner, RelicRarity.Common).ToMutable();
         await RelicCmd.Obtain(relic, base.Owner);
         SetEventFinished(PageDescription("EXTINGUISHED"));
