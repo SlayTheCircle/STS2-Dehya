@@ -61,7 +61,11 @@ public sealed class ScorchingFlare : DehyaEventBase
 
     private async Task EmbraceFlame()
     {
+#if MOD_GAME_0113_0
+        await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), base.Owner.Creature, base.DynamicVars["MaxHpLoss"].BaseValue, cardSource: null);
+#else
         await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), base.Owner.Creature, base.DynamicVars["MaxHpLoss"].BaseValue, isFromCard: false);
+#endif
         await CreatureCmd.Heal(base.Owner.Creature, base.DynamicVars.Heal.BaseValue);
         SetEventFinished(PageDescription("EMBRACED"));
     }

@@ -2,11 +2,11 @@
 
 [简体中文](README.md)
 
-A Dehya mod for Slay the Spire 2, supporting both game branches: 0.107.1 (stable) and 0.111.0 (beta). See [STATUS.md](STATUS.md) for implemented state and limits.
+A Dehya mod for Slay the Spire 2, supporting both game branches: 0.107.1 (stable) and 0.113.0 (beta). See [STATUS.md](STATUS.md) for implemented state and limits.
 
 ## Installation
 
-This checkout provides source code, bilingual localization, text resource configuration, and organized public design documents. The preferred install path is subscribing on Steam Workshop together with [RitsuLib](https://steamcommunity.com/sharedfiles/filedetails/?id=3747602295) — the workshop item picks the matching content for the running game version, so switching branches needs no reinstall. Alternatively, download the zip for your game target from [GitHub Releases](https://github.com/SlayTheCircle/STS2-Dehya/releases) and place its `STS2-Dehya/` directory under the game's `mods/` directory. Close the game before installing (the game scans `mods/` recursively — keep backups outside it), and keep the previous package for rollback. Minimum dependency versions are defined in the [mod manifest](STS2-Dehya.json). Multimedia is absent from source checkouts; a DLL alone is not a complete installable package.
+This checkout provides source code, bilingual localization, text resource configuration, and organized public design documents. The preferred install path is subscribing on [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3814365813) together with [RitsuLib](https://steamcommunity.com/sharedfiles/filedetails/?id=3747602295) — the workshop item picks the matching content for the running game version, so switching branches needs no reinstall. Alternatively, download the zip for your game target from [GitHub Releases](https://github.com/SlayTheCircle/STS2-Dehya/releases) and place its `STS2-Dehya/` directory under the game's `mods/` directory. Close the game before installing (the game scans `mods/` recursively — keep backups outside it), and keep the previous package for rollback. Minimum dependency versions are defined in the [mod manifest](STS2-Dehya.json). Multimedia is absent from source checkouts; a DLL alone is not a complete installable package.
 
 ## Development
 

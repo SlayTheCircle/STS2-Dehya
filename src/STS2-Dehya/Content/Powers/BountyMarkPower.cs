@@ -38,7 +38,11 @@ public sealed class BountyMarkPower : DehyaPowerBase
         }
     }
 
+#if MOD_GAME_0113_0
+    public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, MegaCrit.Sts2.Core.Models.CardModel? source, bool wasRemovalPrevented, float deathAnimLength)
+#else
     public override async Task AfterDeath(PlayerChoiceContext choiceContext, Creature creature, bool wasRemovalPrevented, float deathAnimLength)
+#endif
     {
         if (wasRemovalPrevented || creature != base.Owner)
         {
