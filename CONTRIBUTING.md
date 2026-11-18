@@ -14,9 +14,9 @@
 | `GODOT_EXE` | Godot 标准版可执行文件 | 仓库 `.tools/godot/4.5.1/` 下的 Linux x86_64 二进制 |
 | `GAME_DIR` | 游戏安装目录 | 无；使用前必须提供 |
 | `GAME_LOG` | 试玩日志 | 无；分诊前必须提供 |
-| `GAME_REFS_DIR` | 游戏编译引用 | 仓库 `libs/game-0.113.0/` |
+| `GAME_REFS_DIR` | 游戏编译引用 | 仓库 `libs/game-0.113.1/` |
 | `RITSULIB_DIR` | 完整 RitsuLib 依赖包 | 仓库 `libs/RitsuLib/` |
-| `MOD_GAME_REFS_1130`／`MOD_GAME_REFS_1071` | 双目标打包引用目录 | libs/game-0.113.0／libs/game-0.107.1 |
+| `MOD_GAME_REFS_1131`／`MOD_GAME_REFS_1071` | 双目标打包引用目录 | libs/game-0.113.1／libs/game-0.107.1 |
 | `MOD_LOADER_GAME_REFS` | Loader 编译引用 | libs/game-0.107.1 |
 | `RITSULIB_TARGET` | RitsuLib compat 对应游戏版本 | `0.113.0` |
 | `ART_SOURCE_DIR` | 自己的私有母版目录或美术仓克隆 | 无；重生成素材前必须提供 |

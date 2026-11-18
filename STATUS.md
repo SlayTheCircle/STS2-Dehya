@@ -1,5 +1,13 @@
 # 当前状态
 
+> 支持政策：稳定版与 Beta 均只追各自最新版，无旧版 LTS。下文旧版本与双目标内容仅记录当时的构建／验收范围，不构成持续兼容承诺；详见[版本与兼容约定](docs/dev/versioning.md)。
+
+## 2026-11-18 · 0.113.1 构建管线
+
+默认游戏引用与实际变体已升级为 **0.113.1**，RitsuLib compat 保持 **0.113.0**。引用刷新接受同系列 Patch；完整构建从 `release_info.json` 写入实际 `min_game_version`，打包核对变体清单与 `lib/game-0.113.1`，CI／Release 输入和附件名同步更新，不保留 0.113.0 变体。
+
+默认 `--dll-only` 编译通过，保留 28 条既有源码警告、0 错误；0.113.1 Loader 探针通过变体选择、缺模型对照及旧依赖拒绝，发现 142 个模型。共享管线的模板独立双目标打包及 Ayaka／Navia 差异路径已验证；本 Mod 未生成新正式候选。CI 所需 0.113.1 引用已在本机私有输入仓准备但未推送；本轮未提交或发布。
+
 ## 2026-11-14 · 0.1.2 已发布
 
 **0.1.2** 已同步发布到 [GitHub Release](https://github.com/SlayTheCircle/STS2-Dehya/releases/tag/v0.1.2) 和现有 [Steam 工坊物品](https://steamcommunity.com/sharedfiles/filedetails/?id=3814365813)，支持游戏 **0.107.1／0.113.0**，最低依赖 **RitsuLib 0.6.12**。源码和版本标签已推送；GitHub 的三个 ZIP 与三个校验文件均核对服务端 SHA-256，Steam 新下载的全部文件与本轮工坊包逐项一致，双语说明与公开状态回查通过。

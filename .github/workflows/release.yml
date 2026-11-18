@@ -1,7 +1,7 @@
 name: Release build
 
 # tag 推送触发：检出私有构建输入（circle-refs 编译参考与美术母版仓）后在托管 runner
-# 上双目标完整构建（package.sh 编排 0.113.0 与 0.107.1 + 引导壳），产出三个候选包——
+# 上双目标完整构建（package.sh 编排 0.113.1 与 0.107.1 + 引导壳），产出三个候选包——
 # 每目标平铺安装 ZIP 与工坊变体布局 ZIP——并创建草稿 Release；维护者验收后手动发布。
 # 发行说明取自 CHANGELOG.md 的对应 `## [版本]` 段落，缺失即中止。
 # 模组身份（MOD_ID）从清单派生；美术仓名按 STS2-<Mod>-art 约定，经 ART_REPO 覆盖。
@@ -64,7 +64,7 @@ jobs:
 
       - name: 校验输入版本目录并记录来源
         run: |
-          for target in 0.113.0 0.107.1; do
+          for target in 0.113.1 0.107.1; do
             [[ -d "refs/game-refs/$target" ]] || { echo "错误: circle-refs 缺少 game-refs/$target。" >&2; exit 1; }
           done
           echo "REFS_COMMIT=$(git -C refs rev-parse --short HEAD)" >> "$GITHUB_ENV"
@@ -95,7 +95,7 @@ jobs:
         env:
           MOD_PACKAGE_CHANNEL: release
           RITSULIB_DIR: ${{ github.workspace }}/refs/RitsuLib
-          MOD_GAME_REFS_1130: ${{ github.workspace }}/refs/game-refs/0.113.0
+          MOD_GAME_REFS_1131: ${{ github.workspace }}/refs/game-refs/0.113.1
           MOD_GAME_REFS_1071: ${{ github.workspace }}/refs/game-refs/0.107.1
         run: bash scripts/package.sh
 
@@ -119,7 +119,7 @@ jobs:
             echo
             echo '---'
             echo
-            echo "**游戏目标**: 0.107.1 / 0.113.0（工坊物品按当前游戏版本自动选择）· **RitsuLib**: >= $ritsu_min"
+            echo "**游戏目标**: 0.107.1 / 0.113.1（工坊物品按当前游戏版本自动选择）· **RitsuLib**: >= $ritsu_min"
             echo "**构建输入**: circle-refs@$REFS_COMMIT · 美术@$ART_COMMIT · 源码@${GITHUB_SHA::8}"
             echo
             echo '```'
@@ -133,10 +133,10 @@ jobs:
         run: |
           gh release create "$GITHUB_REF_NAME" \
             mods-dist/$MOD_ID-*-game-0.107.1.zip \
-            mods-dist/$MOD_ID-*-game-0.113.0.zip \
+            mods-dist/$MOD_ID-*-game-0.113.1.zip \
             mods-dist/$MOD_ID-*-workshop.zip \
             mods-dist/$MOD_ID-*.sha256 \
             --draft \
-            --title "$MOD_ID v$TAG (game 0.107.1 / 0.113.0)" \
+            --title "$MOD_ID v$TAG (game 0.107.1 / 0.113.1)" \
             --notes-file /tmp/release-notes.md
           echo "草稿 Release 已创建；下载试玩验收通过后手动发布。"
