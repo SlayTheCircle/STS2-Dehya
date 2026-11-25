@@ -18,7 +18,7 @@
 
 [ExampleCopyCard](../../examples/cards/ExampleCopyCard.cs)是同版本原版 DualWield 接线的简化示范：从手牌选攻击/能力，正常取消时直接返回，选定后调用 `selected.CreateClone()`，再经 `CardPileCmd.AddGeneratedCardToCombat` 放入拥有者手牌。原卡和主卡组保持原设计状态。例子的 token 自身采用原版 ColorlessCardPool 外观；复制出来的牌仍保留被选牌的类型、效果和原有外观。
 
-`CreateClone` 用于战斗副本；局内永久复制走 `ICardScope.CloneCard`，新卡走该作用域的 `CreateCard`。查对应版本 CardModel、ICardScope 与 DualWield；不要从任意场外卡调用 CreateClone，也不要用 `new` 创建运行时游戏模型。0.111.0 的跨玩家 `CreateCloneForPlayer` 不属于模板现有兼容垫片，新增使用须处理 0.107.1 差异。
+`CreateClone` 用于战斗副本；局内永久复制走 `ICardScope.CloneCard`，新卡走该作用域的 `CreateCard`。查对应版本 CardModel、ICardScope 与 DualWield；不要从任意场外卡调用 CreateClone，也不要用 `new` 创建运行时游戏模型。跨玩家复制需按两版实际 API 核对 `CreateCloneForPlayer` 的调用契约。
 
 复制“整张卡”不等于给新模型复制一段效果代码。设计若要求新名称/颜色/图像且保留原效果，先明确是否保留原模型类型并在自家 Base 中根据实例标记覆写展示；若必须成为另一模型，应由该机制明确保存原卡描述和状态、重建需要的效果，而不是通过反射调用任意 OnPlay。费用覆盖、X 值、升级、附魔、临时修正、额外出牌与卡源分别裁定。模板不预置通用卡牌解释器。
 

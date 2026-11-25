@@ -49,12 +49,12 @@ public sealed class TransportCommission : DehyaEventBase
 
     private async Task StealGoods()
     {
-#if MOD_GAME_0113_0
+#if MOD_GAME_0114_0
         await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), base.Owner.Creature, base.DynamicVars["MaxHpLoss"].BaseValue, cardSource: null);
 #else
         await CreatureCmd.LoseMaxHp(new ThrowingPlayerChoiceContext(), base.Owner.Creature, base.DynamicVars["MaxHpLoss"].BaseValue, isFromCard: false);
 #endif
-#if MOD_GAME_0113_0
+#if MOD_GAME_0114_0
         RelicModel relic = RelicFactory.PullNextRelicFromFront(base.Owner, base.Rng).ToMutable();
 #else
         RelicModel relic = RelicFactory.PullNextRelicFromFront(base.Owner).ToMutable();

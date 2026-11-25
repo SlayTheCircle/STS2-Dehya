@@ -77,15 +77,7 @@ internal sealed class GameProbeHost
     public void CompleteLoad(object mod, Assembly loader)
     {
         // 与两版 TryLoadMod 的初始化器后序一致：先保存壳、设 Loaded，再发事件。
-        FieldInfo? legacy = _mod.GetField("assembly");
-        if (legacy is not null)
-        {
-            legacy.SetValue(mod, loader);
-        }
-        else
-        {
-            ((IList)_mod.GetField("assemblies")!.GetValue(mod)!).Add(loader);
-        }
+        ((IList)_mod.GetField("assemblies")!.GetValue(mod)!).Add(loader);
         SetState(mod, "Loaded");
         PublishDetected(mod);
     }

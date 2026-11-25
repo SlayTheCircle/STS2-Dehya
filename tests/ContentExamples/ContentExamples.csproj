@@ -7,7 +7,6 @@
     <GameRefsDir>$(GAME_REFS_DIR)</GameRefsDir>
     <RitsuLibDir>$(RITSULIB_DIR)</RitsuLibDir>
     <RitsuLibReferenceTarget>$(RITSULIB_TARGET)</RitsuLibReferenceTarget>
-    <DefineConstants Condition="'$(RITSULIB_TARGET)' == '0.107.1'">$(DefineConstants);MOD_GAME_0107_1</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="../../src/STS2-Dehya/STS2-Dehya.csproj" />

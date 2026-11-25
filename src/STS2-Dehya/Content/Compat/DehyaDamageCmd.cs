@@ -19,21 +19,11 @@ public static class DehyaDamageCmd
 {
     public static Task<IEnumerable<DamageResult>> Damage(PlayerChoiceContext choiceContext, Creature target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
-#if !MOD_GAME_0107_1
         return CreatureCmd.Damage(choiceContext, target, amount, props, dealer, cardSource, cardPlay);
-#else
-        _ = cardPlay;
-        return CreatureCmd.Damage(choiceContext, target, amount, props, dealer, cardSource);
-#endif
     }
 
     public static Task<IEnumerable<DamageResult>> Damage(PlayerChoiceContext choiceContext, IEnumerable<Creature> targets, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
     {
-#if !MOD_GAME_0107_1
         return CreatureCmd.Damage(choiceContext, targets, amount, props, dealer, cardSource, cardPlay);
-#else
-        _ = cardPlay;
-        return CreatureCmd.Damage(choiceContext, targets, amount, props, dealer, cardSource);
-#endif
     }
 }

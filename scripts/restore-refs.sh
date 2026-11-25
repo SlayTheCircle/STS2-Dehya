@@ -13,8 +13,8 @@ for name in sts2.dll GodotSharp.dll 0Harmony.dll; do
     [[ -f "$DATA_DIR/$name" ]] || { echo "错误: 游戏安装缺少 $name。" >&2; exit 1; }
 done
 [[ -f "$GAME_DIR/release_info.json" ]] || { echo '错误: 游戏安装缺 release_info.json。' >&2; exit 1; }
-version="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["version"].removeprefix("v"))' "$GAME_DIR/release_info.json")"
-if [[ "$version" != "$RITSULIB_TARGET" && ! ( "$RITSULIB_TARGET" == "0.113.0" && "$version" =~ ^0\.113\.[0-9]+$ ) ]]; then
+version="$(mod_game_version "$GAME_DIR")"
+if ! mod_game_refs_match_compat "$version"; then
     echo "错误: 游戏版本 $version 与 RitsuLib compat=$RITSULIB_TARGET 不兼容；未复制引用。" >&2
     exit 1
 fi

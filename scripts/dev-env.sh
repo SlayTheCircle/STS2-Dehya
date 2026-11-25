@@ -8,7 +8,7 @@ MOD_GODOT_VERSION="4.5.1"
 # 保留调用者显式设置的值，本地可信配置只提供后备值。
 mod_env_names=()
 mod_env_values=()
-for mod_name in GAME_DIR GAME_LOG GAME_REFS_DIR RITSULIB_DIR RITSULIB_TARGET DOTNET_EXE GODOT_EXE ART_SOURCE_DIR ROSTER_DESIGN_FILE TASKLIST_EXE MOD_GAME_REFS_1131 MOD_GAME_REFS_1071 MOD_LOADER_GAME_REFS; do
+for mod_name in GAME_DIR GAME_LOG GAME_REFS_DIR RITSULIB_DIR RITSULIB_TARGET DOTNET_EXE GODOT_EXE ART_SOURCE_DIR ROSTER_DESIGN_FILE TASKLIST_EXE MOD_GAME_REFS_1140 MOD_GAME_REFS_1111 MOD_LOADER_GAME_REFS; do
     if [[ -v "$mod_name" ]]; then
         mod_env_names+=("$mod_name")
         mod_env_values+=("${!mod_name}")
@@ -24,9 +24,9 @@ unset mod_env_names mod_env_values mod_name mod_i
 
 DOTNET_EXE="${DOTNET_EXE:-dotnet}"
 GODOT_EXE="${GODOT_EXE:-$MOD_ROOT/.tools/godot/$MOD_GODOT_VERSION/Godot_v${MOD_GODOT_VERSION}-stable_linux.x86_64}"
-GAME_REFS_DIR="${GAME_REFS_DIR:-$MOD_ROOT/libs/game-0.113.1}"
+GAME_REFS_DIR="${GAME_REFS_DIR:-$MOD_ROOT/libs/game-0.114.0}"
 RITSULIB_DIR="${RITSULIB_DIR:-$MOD_ROOT/libs/RitsuLib}"
-RITSULIB_TARGET="${RITSULIB_TARGET:-0.113.0}"
+RITSULIB_TARGET="${RITSULIB_TARGET:-0.114.0}"
 TASKLIST_EXE="${TASKLIST_EXE:-tasklist.exe}"
 ROSTER_DESIGN_FILE="${ROSTER_DESIGN_FILE:-$MOD_ROOT/docs/history/design/card-roster.txt}"
 
@@ -57,6 +57,15 @@ mod_dotnet() {
     (cd "$MOD_ROOT" && "$DOTNET_EXE" "$@")
 }
 
+mod_game_version() {
+    python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["version"].removeprefix("v"))' "$1/release_info.json"
+}
+
+mod_game_refs_match_compat() {
+    local version="$1"
+    [[ "$version" =~ ^0\.(111|114)\.[0-9]+$ && "$RITSULIB_TARGET" == "${version%.*}.0" ]]
+}
+
 mod_require_refs() {
     local mod_file mod_version
     for mod_file in sts2.dll GodotSharp.dll 0Harmony.dll release_info.json; do
@@ -65,8 +74,8 @@ mod_require_refs() {
             return 1
         }
     done
-    mod_version="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["version"].removeprefix("v"))' "$GAME_REFS_DIR/release_info.json")" || return 1
-    if [[ "$mod_version" != "$RITSULIB_TARGET" && ! ( "$RITSULIB_TARGET" == "0.113.0" && "$mod_version" =~ ^0\.113\.[0-9]+$ ) ]]; then
+    mod_version="$(mod_game_version "$GAME_REFS_DIR")" || return 1
+    if ! mod_game_refs_match_compat "$mod_version"; then
         echo "错误: 游戏引用版本 $mod_version 与 RitsuLib compat=$RITSULIB_TARGET 不兼容。" >&2
         return 1
     fi

@@ -7,11 +7,6 @@ namespace MegaCrit.Sts2.Core.Entities.Cards;
 
 internal static class DehyaCardPlayShim
 {
-#if !MOD_GAME_0107_1
     public static Player GetPlayer(this CardPlay cardPlay)
         => cardPlay.Player;
-#else
-    public static Player GetPlayer(this CardPlay cardPlay)
-        => cardPlay.Card.Owner;
-#endif
 }

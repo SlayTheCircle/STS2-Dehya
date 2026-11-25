@@ -10,11 +10,11 @@
 
 工坊候选布局由根目录 Loader 选择并加载 `lib/game-<目标>/<ModId>.dll`，PCK 由根清单的 `has_pck` 走游戏原生挂载。根壳和内容 DLL 的程序集身份必须不同（壳带 `.Loader` 后缀），以避免同一个 AssemblyLoadContext 内同名冲突；**壳的文件名必须等于 mod id**——游戏按文件名发现 `<id>.dll`。
 
-RitsuLib 的 `RegisterModAssembly` 建立库内的发现与归属关系；**不能假定它已经完成游戏模型扫描所需的程序集登记**。当前库在发现管线中尝试调用原生关联 API，但 0.107.1 没有该 API。`GameAssemblyRegistration` 显式维护游戏侧登记：0.111.0 经原生 `ModManager.AssociateAssemblyWithMod` 追加内容程序集；0.107.1 经 `OnModDetected` 在加载完成后将单个 `Mod.assembly` 槽改为内容程序集。旧版初始化器返回后会写入根壳，提前改槽会被覆盖。事件只处理本次加载的 Mod 实例，错误加载不暴露内容。
+RitsuLib 的 `RegisterModAssembly` 建立库内的发现与归属关系。`GameAssemblyRegistration` 通过两版共有的 `ModManager.AssociateAssemblyWithMod` 登记内容程序集，供原生模型扫描使用。
 
 若内容 DLL 未进入游戏侧登记，`ReflectionHelper.ModTypes` 仍只扫描根壳，ModelDb 不会创建角色、卡牌与池模型；RitsuLib 随后解析已登记角色会抛 ModelNotFoundException。验证入口与证据边界见 [Loader 验证](../../tests/LoaderProbe/README.md)，游戏内状态见 [STATUS](../../STATUS.md)。
 
-Loader 按两版游戏共有 API 的下限（0.107.1）编译一次；身份只有三个常量（ModId／VariantDllName／manifest 名）。
+Loader 按两版游戏共有 API 的下限（0.111.1）编译一次；身份只有三个常量（ModId／VariantDllName／manifest 名）。
 
 ## 复合 ID（本地化与条目键的唯一约定）
 

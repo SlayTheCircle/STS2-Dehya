@@ -19,7 +19,7 @@ namespace DehyaMod.Loader;
 /// 加载其程序集并把 <c>ModInitializer</c> 转发给真正的模组入口。
 /// 资源包与游戏目标无关,由根目录 STS2-Dehya.pck 走游戏原生挂载(has_pck=true)。
 /// 变体目录只含 dll,限制在 lib/ 内;内容程序集还须登记到游戏模型扫描通道,
-/// 0.107.1 仅转发初始化器与 RitsuLib 归属登记会导致启动时 ModelNotFoundException。
+/// 游戏侧的内容程序集登记供原生模型扫描使用。
 /// 依赖按变体各自校验并复用游戏原生 MOD_ERROR 呈现。
 /// 多变体加载设计改自 STS2-RitsuLib(MIT,OLC),经 RandomForeseer 工坊壳验证;归属见 THIRD_PARTY_NOTICES。
 /// </summary>

@@ -8,7 +8,7 @@
 
 ## 配置与引用
 
-工具版本和本机变量见 [贡献指南](../../CONTRIBUTING.md)。脚本加载根目录可信 `.local-dev.env`；公开示例不含实际本机路径。游戏引用从 GAME_DIR 复制到 GAME_REFS_DIR，RitsuLib 包通过 RITSULIB_DIR 选择。游戏引用版本与 RITSULIB_TARGET 不兼容时中止；RITSULIB_TARGET=0.113.0 时允许同系列 0.113.x Patch 引用，安装清单的 min_game_version 直接取实际引用版本（当前为 0.113.1），不再从 compat 名称推导。花名册默认读取公开的 docs/history/design/card-roster.txt；可用 ROSTER_DESIGN_FILE 检查另一卡表，不设置时无需任何私有文件。
+工具版本和本机变量见 [贡献指南](../../CONTRIBUTING.md)。脚本加载根目录可信 `.local-dev.env`；公开示例不含实际本机路径。游戏引用从 GAME_DIR 复制到 GAME_REFS_DIR，RitsuLib 包通过 RITSULIB_DIR 选择。游戏引用版本与 RITSULIB_TARGET 不兼容时中止；Stable 0.111.x 对应 compat 0.111.0，Beta 0.114.x 对应 compat 0.114.0。候选包固定使用 0.111.1 和 0.114.0。安装清单从实际游戏引用读取 min_game_version。花名册默认读取公开的 docs/history/design/card-roster.txt；可用 ROSTER_DESIGN_FILE 检查另一卡表，不设置时无需任何私有文件。
 
 ```bash
 ./scripts/restore-refs.sh [游戏安装目录]
@@ -33,7 +33,7 @@ export PATH="$DOTNET_ROOT:$DOTNET_ROOT/tools:$PATH"
 
 C# 扩展自身使用的 .NET Runtime 与项目所需 SDK 分别发现。dotnetAcquisitionExtension.existingDotnetPath 用于扩展运行宿主，不应将它当作项目 SDK 选择器；项目 SDK 仍按 global.json 与可发现安装选择。
 
-编辑器直接加载 csproj 时，游戏引用与 RitsuLib 同样必须可见。可在本机环境设置 GAME_REFS_DIR／RITSULIB_DIR，或准备 csproj 的默认 libs/game-0.113.1／libs/RitsuLib。Linux／WSL 可在 libs/RitsuLib 尚不存在时，用本地符号链接指向已准备的完整包；此目录被整体忽略，真实路径不进入公开文件。不要将项目专用引用变量写成所有工作区共享的固定值。
+编辑器直接加载 csproj 时，游戏引用与 RitsuLib 同样必须可见。可在本机环境设置 GAME_REFS_DIR／RITSULIB_DIR，或准备 csproj 的默认 libs/game-0.114.0／libs/RitsuLib。Linux／WSL 可在 libs/RitsuLib 尚不存在时，用本地符号链接指向已准备的完整包；此目录被整体忽略，真实路径不进入公开文件。不要将项目专用引用变量写成所有工作区共享的固定值。
 
 遇到 SDK 错误先在对应 WSL 环境运行 dotnet --list-sdks 与 dotnet --version，再核对项目是否能直接评估；遇到 MSB4019 或缺程序集时继续检查依赖路径。分别报告 SDK 发现、项目加载与实际编译的结果。
 
@@ -72,15 +72,15 @@ C# 扩展自身使用的 .NET Runtime 与项目所需 SDK 分别发现。dotnetA
 
 tag `v*` 可触发 [Release 工作流](../../.github/workflows/release.yml)，main 推送可触发 [Compile 工作流](../../.github/workflows/compile.yml)。私有输入 CI 仅在设置 BUILD_INPUTS_REPO variable 后启用，源码检查无需凭据。输入仓包含 game-refs/<版本>/ 与 RitsuLib；美术仓由 ART_REPO variable 选择，默认当前 GitHub 仓库名加 -art。两者使用 REFS_TOKEN 只读 secret，外部维护者可准备自己的输入，不要求组织访问权。双目标构建由 package.sh 编排，不从单一 min_game_version 推断兼容。发行说明取 CHANGELOG 对应段落，成功后创建草稿；实际 Actions 与发行物仍须维护者验收。配置步骤见[新仓上手](onboarding.md)。
 
-本机 package.sh 不要求上述变量或 secret；两版引用分别由 MOD_GAME_REFS_1131 与 MOD_GAME_REFS_1071 指定，Loader 使用 MOD_LOADER_GAME_REFS。
+本机 package.sh 不要求上述变量或 secret；两版引用分别由 MOD_GAME_REFS_1140 与 MOD_GAME_REFS_1111 指定，Loader 使用 MOD_LOADER_GAME_REFS。
 
 Steam 工坊发布为本地手工步（`local_dev/workshop/publish.sh`，私有，脚手架见 `templates/workshop/`）：从 Release 工件取内容经 SteamCMD 上传至固定物品，描述单源 `description.bbcode` 使用真实换行——steamcmd 的 VDF 不解析 `\n` 转义，会按字面透传。取件按 tag 精确匹配文件名，目录里的历史工件会撞坏通配符。
 
-模板现有适配包括 Power 伤害加成签名、角色动画声明，以及 `Content/Compat/` 的 FromCard／CardPlay.GetPlayer 垫片。csproj 按 `RITSULIB_TARGET` 自动注入 `MOD_GAME_0107_1`；不承诺未使用的克隆、LoseBlock 或卡牌去向 API 已有垫片。这些只服务当前过渡双目标。新增调用只核对目标分支最新版与 RitsuLib，不为旧目标新增垫片。现有双目标回归在管线收敛前仍分别以 `RITSULIB_TARGET=0.107.1 GAME_REFS_DIR=<0.107.1 引用>` 与默认环境跑 `build.sh --dll-only`；若旧目标阻碍升级，按版本政策退役旧目标而非追加兼容工作。注意声明层错误会让编译在方法体绑定前中止——必须迭代到零错误，以警告回归确认绑定完整。变体候选布局与游戏内状态见 [STATUS](../../STATUS.md)。
+默认构建使用 Beta。Stable 构建使用 `RITSULIB_TARGET=0.111.0 GAME_REFS_DIR=<0.111.1 引用>` 运行 `build.sh --dll-only`。候选布局与验证状态见 [STATUS](../../STATUS.md)。
 
 完整 build.sh 按 GAME_REFS_DIR/release_info.json 的实际版本写入平铺安装清单的 min_game_version，不改根源码清单；package.sh 为各目标保存匹配的内容 DLL/清单，工坊根 Loader 声明共同下限。DLL-only 仍不更新安装目录。开发期可按显式批次运行源码/完整本机检查，发行候选包要求花名册延后项清零。
 
-Loader 按两版共有的 API 下限 0.107.1 编译：`scripts/build-loader.sh` 输出到 `mods-dist/loader/`，不刷新已有工坊目录或 ZIP。构建变体包时须重新执行 package.sh；产物更新不等于部署授权。游戏程序集登记规则见[架构](architecture.md#变体-loader-与游戏模型发现)。[Loader 验证](../../tests/LoaderProbe/README.md) 使用真实游戏 DLL 检查选择、依赖拒绝与模型发现，仍须用实际游戏复验完整初始化、资源和菜单。
+Loader 按两版共有的 API 下限 0.111.1 编译：`scripts/build-loader.sh` 输出到 `mods-dist/loader/`，不刷新已有工坊目录或 ZIP。构建变体包时须重新执行 package.sh；产物更新不等于部署授权。游戏程序集登记规则见[架构](architecture.md#变体-loader-与游戏模型发现)。[Loader 验证](../../tests/LoaderProbe/README.md) 使用真实游戏 DLL 检查选择、依赖拒绝与模型发现，仍须用实际游戏复验完整初始化、资源和菜单。
 
 ## 候选部署与工坊更新核对
 

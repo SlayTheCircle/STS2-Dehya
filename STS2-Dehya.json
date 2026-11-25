@@ -11,8 +11,8 @@
   "dependencies": [
     {
       "id": "STS2-RitsuLib",
-      "min_version": "0.6.12"
+      "min_version": "0.6.16"
     }
   ],
-  "min_game_version": "0.107.1"
+  "min_game_version": "0.111.1"
 }

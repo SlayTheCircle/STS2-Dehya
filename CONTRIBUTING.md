@@ -14,11 +14,11 @@
 | `GODOT_EXE` | Godot 标准版可执行文件 | 仓库 `.tools/godot/4.5.1/` 下的 Linux x86_64 二进制 |
 | `GAME_DIR` | 游戏安装目录 | 无；使用前必须提供 |
 | `GAME_LOG` | 试玩日志 | 无；分诊前必须提供 |
-| `GAME_REFS_DIR` | 游戏编译引用 | 仓库 `libs/game-0.113.1/` |
+| `GAME_REFS_DIR` | 游戏编译引用 | 仓库 `libs/game-0.114.0/` |
 | `RITSULIB_DIR` | 完整 RitsuLib 依赖包 | 仓库 `libs/RitsuLib/` |
-| `MOD_GAME_REFS_1131`／`MOD_GAME_REFS_1071` | 双目标打包引用目录 | libs/game-0.113.1／libs/game-0.107.1 |
-| `MOD_LOADER_GAME_REFS` | Loader 编译引用 | libs/game-0.107.1 |
-| `RITSULIB_TARGET` | RitsuLib compat 对应游戏版本 | `0.113.0` |
+| `MOD_GAME_REFS_1140`／`MOD_GAME_REFS_1111` | 双目标打包引用目录 | libs/game-0.114.0／libs/game-0.111.1 |
+| `MOD_LOADER_GAME_REFS` | Loader 编译引用 | libs/game-0.111.1 |
+| `RITSULIB_TARGET` | RitsuLib compat 对应游戏版本 | `0.114.0` |
 | `ART_SOURCE_DIR` | 自己的私有母版目录或美术仓克隆 | 无；重生成素材前必须提供 |
 | `ROSTER_DESIGN_FILE` | 卡表审计输入覆盖 | 仓库 `docs/history/design/card-roster.txt` |
 | `TASKLIST_EXE` | Windows 进程检测工具 | PATH 中的 `tasklist.exe` |
@@ -35,7 +35,7 @@
 ./scripts/check.sh --full
 ```
 
-游戏引用版本与 `RITSULIB_TARGET` 必须一致。完整 RitsuLib 包中的 props 会选择同版本 compat DLL 和共享 DLL。
+游戏引用版本必须与 `RITSULIB_TARGET` 配对，0.111.1 使用 compat 0.111.0，0.114.0 使用 compat 0.114.0。完整 RitsuLib 包中的 props 会选择同版本 compat DLL 和共享 DLL。
 
 ## 本地导航与仓库边界
 

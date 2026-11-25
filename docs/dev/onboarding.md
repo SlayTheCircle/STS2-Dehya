@@ -23,7 +23,7 @@ scripts/init-mod.sh <新ModId> <PascalName> --cn-name "<中文名>" [--name "<�
 
 本机编译、打包和实现设计不要求组织密钥。源码 CI 无 secret 可执行；私有输入构建默认不启用。
 
-1. 自行准备只读构建输入仓，包含 `game-refs/0.113.1/`、`game-refs/0.107.1/` 与 `RitsuLib/` 完整包。组织成员可使用获准访问的 circle-refs；外部维护者使用自己的输入仓。
+1. 自行准备只读构建输入仓，包含 `game-refs/0.114.0/`、`game-refs/0.111.1/` 与 `RitsuLib/` 完整包。组织成员可使用获准访问的 circle-refs；外部维护者使用自己的输入仓。
 2. Actions variable `BUILD_INPUTS_REPO` 填 `Owner/Repository` 后启用 Compile 与 Release。设置 `REFS_TOKEN` secret，赋予所读取输入仓和美术仓的只读权限；不公开凭据或私人存放位置。
 3. variable `ART_REPO` 可覆盖美术仓；默认当前 GitHub 仓库名加 `-art`。输入仓名和凭据不硬编码进源码。
 

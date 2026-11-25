@@ -13,12 +13,6 @@ public static class BlockCmd
 {
     public static Task LoseBlock(PlayerChoiceContext choiceContext, Creature creature, decimal amount, Creature? remover)
     {
-#if !MOD_GAME_0107_1
         return CreatureCmd.LoseBlock(choiceContext, creature, amount, remover);
-#else
-        _ = choiceContext;
-        _ = remover;
-        return CreatureCmd.LoseBlock(creature, amount);
-#endif
     }
 }

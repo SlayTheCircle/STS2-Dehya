@@ -13,13 +13,8 @@ namespace DehyaMod.Content.Compat;
 /// </summary>
 public abstract class DehyaDamageRelicBase : DehyaRelicBase
 {
-#if !MOD_GAME_0107_1
     public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay)
         => ModifyDamageAdditiveCore(target, amount, props, dealer, cardSource);
-#else
-    public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
-        => ModifyDamageAdditiveCore(target, amount, props, dealer, cardSource);
-#endif
 
     protected virtual decimal ModifyDamageAdditiveCore(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource)
         => 0m;

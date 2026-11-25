@@ -17,11 +17,6 @@ public static class HpLossCmd
 {
     public static Task LoseHpFromCard(PlayerChoiceContext choiceContext, Creature creature, decimal amount, CardModel card, CardPlay? cardPlay)
     {
-#if !MOD_GAME_0107_1
         return CreatureCmd.Damage(choiceContext, creature, amount, ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, card, cardPlay);
-#else
-        _ = cardPlay;
-        return CreatureCmd.Damage(choiceContext, creature, amount, ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, card);
-#endif
     }
 }

@@ -29,13 +29,8 @@ public abstract class DehyaPowerBase : ModPowerTemplate
     /// 伤害加成统一入口:0.111 的 AbstractModel.ModifyDamageAdditive 带 CardPlay 第六参,0.107.1 没有。
     /// 差异吸收在本基线,子类只覆写五参 Core,两个游戏目标共用同一份逻辑(现有子类均不使用 cardPlay)。
     /// </summary>
-#if !MOD_GAME_0107_1
     public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? card, CardPlay? cardPlay)
         => ModifyDamageAdditiveCore(target, amount, props, dealer, card);
-#else
-    public override decimal ModifyDamageAdditive(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? card)
-        => ModifyDamageAdditiveCore(target, amount, props, dealer, card);
-#endif
     protected virtual decimal ModifyDamageAdditiveCore(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? card)
         => 0m;
 }

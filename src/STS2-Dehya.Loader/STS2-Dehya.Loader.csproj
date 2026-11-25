@@ -9,9 +9,9 @@
     <Nullable>enable</Nullable>
     <LangVersion>13.0</LangVersion>
     <EnableDynamicLoading>true</EnableDynamicLoading>
-    <!-- 引导壳在两个游戏目标上共用一份:固定对下限 0.107.1 编译,只允许使用两版共有的 API。 -->
+    <!-- 引导壳在两个游戏目标上共用一份:固定对下限 0.111.1 编译,只允许使用两版共有的 API。 -->
     <GameRefsDir Condition="'$(GameRefsDir)' == ''">$(MOD_LOADER_GAME_REFS)</GameRefsDir>
-    <GameRefsDir Condition="'$(GameRefsDir)' == ''">$(MSBuildThisFileDirectory)..\..\libs\game-0.107.1</GameRefsDir>
+    <GameRefsDir Condition="'$(GameRefsDir)' == ''">$(MSBuildThisFileDirectory)..\..\libs\game-0.111.1</GameRefsDir>
   </PropertyGroup>
 
   <ItemGroup>

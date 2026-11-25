@@ -1,6 +1,6 @@
 # 接入战斗动画
 
-适用基线为本模板的游戏 0.107.1／0.113.0 与配对 RitsuLib。示例源码通过 [ContentExamples](../../../tests/ContentExamples/ContentExamples.csproj) 编译；实际游戏场景需在自己的角色中接入并试玩。
+适用基线为游戏 0.111.1／0.114.0 与配对的 RitsuLib 0.6.16。示例源码通过 [ContentExamples](../../../tests/ContentExamples/ContentExamples.csproj) 编译；实际游戏场景需在自己的角色中接入并试玩。
 
 ## 先分开内层角色与游戏外壳
 
